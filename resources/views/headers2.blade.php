@@ -29,14 +29,12 @@
 </head>
 <body>
 <div id="wrapper">
-
-
 <!-- Header
 ================================================== -->
-<header class="transparent sticky-header full-width">
+<header class="sticky-header">
 <div class="container">
 	<div class="sixteen columns">
-	
+
 		<!-- Logo -->
 		<div id="logo">
 			<h1><a href="{{ route('home') }}"><img src="{{ asset('images/logo.png') }}" alt="Job" /></a></h1>
@@ -46,10 +44,9 @@
 		<nav id="navigation" class="menu">
 			<ul id="responsive">
 
-				<li>
-                    <a href="{{ route('home') }}">Home</a>
+				<li> <a href="{{ route('home') }}">Home</a>
 				</li>
-				
+
 				<li><a href="#">For Candidates</a>
 					<ul>
 						<li><a href="{{ route('listjob') }}">Browse Jobs</a></li>
@@ -59,7 +56,7 @@
 						<li><a href="job-alerts.html">Job Alerts</a></li> --}}
 					</ul>
 				</li>
-				<li> <a href="{{ route('contact') }}">Contact</a>
+                <li> <a href="{{ route('contact') }}">Contact</a>
 				</li>
 			</ul>
 		</nav>

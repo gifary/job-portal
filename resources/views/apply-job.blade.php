@@ -1,6 +1,25 @@
-@include('header')
-	
-<div class="container" style="width:100%">
+@include('header_apply')
+<style>
+#profileForm .content {
+    min-height: 100px;
+}
+#profileForm .content > .body {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    position: relative;
+}
+.wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active{
+  background: #26ae61;
+}
+.wizard > .actions a, .wizard > .actions a:hover, .wizard > .actions a:active{
+  background: #26ae61;
+}
+.wizard > .steps .done a, .wizard > .steps .done a:hover, .wizard > .steps .done a:active{
+  background: #74cc9a;
+}
+</style>
+<div class="container" style="width:100%; ">
   {!! Form::open(['route' => ['postjob',$id,$m_lokasi_id], 'method' => 'post', "id"=>"form-recrutiment",'files' => true]) !!}
    <div id="profileForm" class="single">
     <div class="wajib">
@@ -78,21 +97,21 @@
         <div class="col-lg-3 col-md-6 col-xs-12">
             <div class="form-group {!! $errors->has('no_ktp') ? 'has-error' : '' !!}">
               {!! Form::label('no_ktp', '*Nomor KTP') !!}
-              {!! Form::text('no_ktp', isset($model) ? $model->no_ktp: null , ['class'=>'form-control']) !!}
+              {!! Form::text('no_ktp', isset($model) ? $model->no_ktp: null , ['class'=>'form-control numericOnly']) !!}
               {!! $errors->first('no_ktp', '<p class="help-block">:message</p>') !!}
             </div>    
         </div>
         <div class="col-lg-3 col-md-6 col-xs-12">
             <div class="form-group {!! $errors->has('berat_badan') ? 'has-error' : '' !!}">
               {!! Form::label('berat_badan', '*Berat Badan') !!}
-              {!! Form::number('berat_badan', isset($model) ? $model->berat_badan: null , ['class'=>'form-control']) !!}
+              {!! Form::text('berat_badan', isset($model) ? $model->berat_badan: null , ['class'=>'form-control numericOnly']) !!}
               {!! $errors->first('berat_badan', '<p class="help-block">:message</p>') !!}
             </div>    
         </div>
         <div class="col-lg-3 col-md-6 col-xs-12">
             <div class="form-group {!! $errors->has('tinggi_badan') ? 'has-error' : '' !!}">
               {!! Form::label('tinggi_badan', '*Tinggi Badan') !!}
-              {!! Form::number('tinggi_badan', isset($model) ? $model->tinggi_badan: null , ['class'=>'form-control']) !!}
+              {!! Form::text('tinggi_badan', isset($model) ? $model->tinggi_badan: null , ['class'=>'form-control numericOnly']) !!}
               {!! $errors->first('tinggi_badan', '<p class="help-block">:message</p>') !!}
             </div>    
         </div>  
@@ -116,14 +135,14 @@
         <div class="col-lg-3 col-md-6 col-xs-12">
             <div class="form-group {!! $errors->has('no_tlp') ? 'has-error' : '' !!}">
               {!! Form::label('no_tlp', 'Nomor Telphone') !!}
-              {!! Form::text('no_tlp', isset($model) ? $model->no_tlp: null , ['class'=>'form-control']) !!}
+              {!! Form::text('no_tlp', isset($model) ? $model->no_tlp: null , ['class'=>'form-control numericOnly']) !!}
               {!! $errors->first('no_tlp', '<p class="help-block">:message</p>') !!}
             </div>    
         </div>
         <div class="col-lg-3 col-md-6 col-xs-12">
             <div class="form-group {!! $errors->has('no_hp') ? 'has-error' : '' !!}">
               {!! Form::label('no_hp', '*Nomor HP') !!}
-              {!! Form::text('no_hp', isset($model) ? $model->no_hp: null , ['class'=>'form-control']) !!}
+              {!! Form::text('no_hp', isset($model) ? $model->no_hp: null , ['class'=>'form-control numericOnly']) !!}
               {!! $errors->first('no_hp', '<p class="help-block">:message</p>') !!}
             </div>    
         </div>
@@ -589,5 +608,10 @@
         centsSeparator: '.',
         thousandsSeparator: ',',
         centsLimit: 0
+    });
+    $('.numericOnly').keyup(function () {
+        if (this.value != this.value.replace(/[^0-9\.]/g, '')) {
+          this.value = this.value.replace(/[^0-9\.]/g, '');
+        }
     });
 </script>

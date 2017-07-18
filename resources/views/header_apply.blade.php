@@ -6,14 +6,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="eeking a Job at Sas Hospitality, Grand tjokro bandung, Grand tjokro" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-{{-- <link href="{{asset('css/bootstrap-3.1.1.min.css')}}" rel='stylesheet' type='text/css' /> --}}
+<link href="{{asset('css/bootstrap-3.1.1.min.css')}}" rel='stylesheet' type='text/css' />
 
 <!-- Custom Theme files -->
 <link href='//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
-{{-- <link rel="stylesheet" href="{{ asset('/css/bootstrap-timepicker.min.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/bootstrap-timepicker.min.css')}}">
 <link rel="stylesheet" href="{{ asset('/css/jquery.steps.css')}} ">
 <link rel="stylesheet" href="{{ asset('/css/select2.min.css')}}">
-<link rel="stylesheet" href="{{ asset('/css/datepicker3.css')}} "> --}}
+<link rel="stylesheet" href="{{ asset('/css/datepicker3.css')}} ">
 <link rel="stylesheet" href="{{ asset('/css/sweetalert.css')}} ">
 <!-- Mobile Specific Metas
 ================================================== -->
@@ -33,7 +33,7 @@
 
 <!-- Header
 ================================================== -->
-<header class="transparent sticky-header full-width">
+<header class="sticky-header">
 <div class="container">
 	<div class="sixteen columns">
 	

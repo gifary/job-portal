@@ -61,7 +61,7 @@ class ListJobController extends Controller
         ->get();
 
         $res = json_decode($response);
-        $loker = $res->data;
+        $loker = $res->data->data;
 
         $response = Curl::to($this->base_url."loker")
         ->withHeader('Authorization: Bearer '.$this->access_token)
@@ -71,9 +71,44 @@ class ListJobController extends Controller
         ->get();
 
         $res = json_decode($response);
-        $spotlight = $res->data;
+        $spotlight = $res->data->data;
         
-        return view('list-job',compact("lokasi","posisi","loker","spotlight"));
+        return view('home',compact("lokasi","posisi","loker","spotlight"));
+    }
+
+    public function listjob(Request $request){
+        $response = Curl::to($this->base_url."lokasi")
+        ->withHeader('Authorization: Bearer '.$this->access_token)
+        ->withHeader('Accept: application/json')
+        ->enableDebug(storage_path('logs/clientlog.txt'))
+        ->get();
+
+        $res = json_decode($response);
+        $lokasi = collect($res->data);
+        $lokasi->prepend("All Location",0);
+        $lokasi->all();
+
+        $response = Curl::to($this->base_url."loker/available_postition")
+        ->withHeader('Authorization: Bearer '.$this->access_token)
+        ->withHeader('Accept: application/json')
+        ->enableDebug(storage_path('logs/clientlog.txt'))
+        ->get();
+
+        $res = json_decode($response);
+        $posisi = $res->data;
+
+
+        $response = Curl::to($this->base_url."loker")
+        ->withHeader('Authorization: Bearer '.$this->access_token)
+        ->withHeader('Accept: application/json')
+        ->withData(array("start"=>0,"limit"=>10))
+        ->enableDebug(storage_path('logs/clientlog.txt'))
+        ->get();
+
+        $res = json_decode($response);
+        $loker = $res->data->data;
+
+        return view('list-job',compact("lokasi","posisi","loker"));
     }
 
     public function search(Request $request)
@@ -129,6 +164,9 @@ class ListJobController extends Controller
         }
     }
 
+    public function contact(){
+         return view('contact');
+    }
     public function apply_job($id,$m_lokasi_id){
         $id = base64_decode($id);
         $m_lokasi_id = base64_decode($m_lokasi_id);
@@ -305,7 +343,7 @@ class ListJobController extends Controller
             ->enableDebug(storage_path('logs/clientlog.txt'))
             ->post();
         session()->flash('status', 'Task was successful!');
-        return redirect()->route('listjob');
+        return redirect()->route('home');
     }
 
     public function download() {

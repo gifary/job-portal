@@ -95,7 +95,7 @@
 <script src="{{ asset('/js/bootstrap-timepicker.min.js')}}"></script>
 
 <script src="{{ asset('/js/sweetalert.min.js')}}"></script>
-
+ @yield('additional-script')
 </body>
 </html>
 
