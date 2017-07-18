@@ -35,16 +35,18 @@ class ListJobController extends Controller
         $response = Curl::to($this->base_url."lokasi")
         ->withHeader('Authorization: Bearer '.$this->access_token)
         ->withHeader('Accept: application/json')
+        ->enableDebug(storage_path('logs/clientlog.txt'))
         ->get();
 
         $res = json_decode($response);
         $lokasi = collect($res->data);
-        $lokasi->prepend("All",0);
+        $lokasi->prepend("All Location",0);
         $lokasi->all();
 
         $response = Curl::to($this->base_url."loker/available_postition")
         ->withHeader('Authorization: Bearer '.$this->access_token)
         ->withHeader('Accept: application/json')
+        ->enableDebug(storage_path('logs/clientlog.txt'))
         ->get();
 
         $res = json_decode($response);
@@ -54,12 +56,24 @@ class ListJobController extends Controller
         $response = Curl::to($this->base_url."loker")
         ->withHeader('Authorization: Bearer '.$this->access_token)
         ->withHeader('Accept: application/json')
+        ->withData(array("start"=>0,"limit"=>10))
+        ->enableDebug(storage_path('logs/clientlog.txt'))
         ->get();
 
         $res = json_decode($response);
         $loker = $res->data;
+
+        $response = Curl::to($this->base_url."loker")
+        ->withHeader('Authorization: Bearer '.$this->access_token)
+        ->withHeader('Accept: application/json')
+        ->withData(array("start"=>0,"limit"=>10,"spotlight"=>1))
+        ->enableDebug(storage_path('logs/clientlog.txt'))
+        ->get();
+
+        $res = json_decode($response);
+        $spotlight = $res->data;
         
-        return view('list-job',compact("lokasi","posisi","loker"));
+        return view('list-job',compact("lokasi","posisi","loker","spotlight"));
     }
 
     public function search(Request $request)
@@ -67,6 +81,7 @@ class ListJobController extends Controller
         $response = Curl::to($this->base_url."lokasi")
         ->withHeader('Authorization: Bearer '.$this->access_token)
         ->withHeader('Accept: application/json')
+        ->enableDebug(storage_path('logs/clientlog.txt'))
         ->get();
 
         $res = json_decode($response);
@@ -77,6 +92,7 @@ class ListJobController extends Controller
         $response = Curl::to($this->base_url."loker/available_postition")
         ->withHeader('Authorization: Bearer '.$this->access_token)
         ->withHeader('Accept: application/json')
+        ->enableDebug(storage_path('logs/clientlog.txt'))
         ->get();
 
         $res = json_decode($response);
@@ -86,6 +102,7 @@ class ListJobController extends Controller
         $response = Curl::to($this->base_url."loker/search")
         ->withHeader('Authorization: Bearer '.$this->access_token)
         ->withHeader('Accept: application/json')
+        ->enableDebug(storage_path('logs/clientlog.txt'))
         ->withData(array("lokasi"=>$request->input("lokasi"),"posisi"=>$request->input("posisi")))
         ->post();
 
@@ -105,14 +122,16 @@ class ListJobController extends Controller
         $loker = $res->data;
         if(!empty($loker)){
             $id = base64_encode($loker->jabatan->m_jabatan_id);
-            return view('detail-job',compact("loker","id"));
+            $m_lokasi_id = base64_encode($loker->lokasi->m_lokasi_id);
+            return view('detail-job',compact("loker","id","m_lokasi_id"));
         }else{
             return abort(404);
         }
     }
 
-    public function apply_job($id){
+    public function apply_job($id,$m_lokasi_id){
         $id = base64_decode($id);
+        $m_lokasi_id = base64_decode($m_lokasi_id);
         $response = Curl::to($this->base_url."agama")
         ->withHeader('Authorization: Bearer '.$this->access_token)
         ->withHeader('Accept: application/json')
@@ -167,10 +186,10 @@ class ListJobController extends Controller
             "0" =>"Tidak",
             "1" => "Ya"
         );
-        return view('apply-job',compact("agama","status","jk","pendidikan","masalah_kesehatan","kota","id"));
+        return view('apply-job',compact("agama","status","jk","pendidikan","masalah_kesehatan","kota","id","m_lokasi_id"));
     }
 
-    public function post_job(Request $request,$m_jabatan_id){
+    public function post_job(Request $request,$m_jabatan_id,$m_lokasi_id){
 
         $messages = [
             'required' => 'This field is required.',
@@ -205,6 +224,7 @@ class ListJobController extends Controller
         $sent_data['salary'] = str_replace(",","",$request->get("salary"));
         $sent_data['foto'] = $file_foto;
         $sent_data['m_jabatan_id'] = $m_jabatan_id;
+        $sent_data['m_lokasi_id'] = $m_lokasi_id;
         $nama_kontak = $request->get("nama_kontak");
         $nomor_hp_kontak = $request->get("nomor_hp_kontak");
         $hubungan_kontak = $request->get("hubungan_kontak");

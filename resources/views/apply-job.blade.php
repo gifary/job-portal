@@ -1,7 +1,7 @@
 @include('header')
 	
 <div class="container" style="width:100%">
-  {!! Form::open(['route' => ['postjob',$id], 'method' => 'post', "id"=>"form-recrutiment",'files' => true]) !!}
+  {!! Form::open(['route' => ['postjob',$id,$m_lokasi_id], 'method' => 'post', "id"=>"form-recrutiment",'files' => true]) !!}
    <div id="profileForm" class="single">
     <div class="wajib">
       <span>* Wajib diisi</span>

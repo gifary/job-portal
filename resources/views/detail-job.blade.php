@@ -1,66 +1,152 @@
 @include('header')
+<!-- Titlebar
+================================================== -->
+<div id="titlebar">
+	<div class="container">
+		<div class="ten columns">
+			<span><a href="browse-jobs.html">Restaurant / Food Service</a></span>
+			<h2>Restaurant Team Member - Crew <span class="full-time">Full-Time</span></h2>
+		</div>
+
+		<div class="six columns">
+			<a href="#" class="button dark"><i class="fa fa-star"></i> Bookmark This Job</a>
+		</div>
+
+	</div>
+</div>
+
+
+<!-- Content
+================================================== -->
 <div class="container">
-   <div class="single">  
-        <div class="col-md-9 single_right">
-            <h1 class="title">{{$loker->jabatan->nama. " (".$loker->kode.")"}}</h1>
-            <span class="meta">{{$loker->lokasi->nama}} / Status Pekerjaan ( {{$loker->status_pekerjaan->nama}} )</span>
-        </div>
-	    <div class="col-md-9 single_right">
-        <p></p>
-	       <p>{{ $loker->deskripsi }}</p>
-	       <p><b>Requirements</b></p>
-           <p>{!! $loker->keterangan !!}</p>
-	       <dl class="experience">
-	       	    <div class="experience_content experience_content1">
-                    <div class="experience_1"><dt><h6>Job Description</h6></dt>
-                        <dd>
-                            {!! $loker->jabatan->job_deskripsi !!}
-                        </dd>
-                    </div>
-	       	    </div>
-	       </dl>
-        </div>
-       <div class="col-md-3">
-	   	  <div class="map_1" id="map_canvas">
-	         
-          </div>
-          <br>
-            <table class="condidate_detail">
-                <h4>Job Details</h4>
-                <tbody>
-                    <tr>
-                        <td>Tanggal Penutupan</td>
-                        <td>{{ date('d M Y', strtotime($loker->tgl_akhir)) }}</td>
-                    </tr>
+	
+	<!-- Recent Jobs -->
+	<div class="eleven columns">
+	<div class="padding-right">
+		
+		<!-- Company Info -->
+		<div class="company-info">
+			<img src="images/company-logo.png" alt="">
+			<div class="content">
+				<h4>King LLC</h4>
+				<span><a href="#"><i class="fa fa-link"></i> Website</a></span>
+				<span><a href="#"><i class="fa fa-twitter"></i> @kingrestaurants</a></span>
+			</div>
+			<div class="clearfix"></div>
+		</div>
 
-                    <tr>
-                        <td>Departement</td>
-                        <td>{{ $loker->departemen->nama }}</td>
-                    </tr>
+		<p class="margin-reset">
+			The Food Service Specialist ensures outstanding customer service is provided to food customers and that all food offerings meet the required stock levels and presentation standards. Beginning your career as a Food Steward will give you a strong foundation in Speedway’s food segment that can make you a vital member of the front line team!
+		</p>
 
-                    <tr>
-                        <td>Jabatan</td>
-                        <td>{{ $loker->jabatan->nama }}</td>
-                    </tr>
+		<br>
+		<p>The <strong>Food Service Specialist</strong> will have responsibilities that include:</p>
 
-                    <tr>
-                        <td>Lokasi</td>
-                        <td>{{ $loker->lokasi->nama }}</td>
-                    </tr>
+		<ul class="list-1">
+			<li>Executing the Food Service program, including preparing and presenting our wonderful food offerings
+			to hungry customers on the go!
+			</li>
+			<li>Greeting customers in a friendly manner and suggestive selling and sampling items to help increase sales.</li>
+			<li>Keeping our Store food area looking terrific and ready for our valued customers by managing product 
+			inventory, stocking, cleaning, etc.</li>
+			<li>We’re looking for associates who enjoy interacting with people and working in a fast-paced environment!</li>
+		</ul>
+		
+		<br>
 
-                    <tr>
-                        <td>Status Pekerjaan</td>
-                        <td>{{ $loker->status_pekerjaan->nama }}</td>
-                    </tr>
-                </tbody>
-		    </table>
-            <br>
-            <div class="condidate_detail">
-                <a href="{{ route('applyjob',$id) }}" class="btn btn-primary btn-block" role="button">Apply</a>
-            </div>
-       </div>
-       <div class="clearfix"> </div>
-    </div>
+		<h4 class="margin-bottom-10">Job Requirment</h4>
+
+		<ul class="list-1">
+			<li>Excellent customer service skills, communication skills, and a happy, smiling attitude are essential.</li>
+			<li>Must be available to work required shifts including weekends, evenings and holidays.</li>
+			<li>Must be able to perform repeated bending, standing and reaching.</li>
+			<li> Must be able to occasionally lift up to 50 pounds</li>
+		</ul>
+
+	</div>
+	</div>
+
+
+	<!-- Widgets -->
+	<div class="five columns">
+
+		<!-- Sort by -->
+		<div class="widget">
+			<h4>Overview</h4>
+
+			<div class="job-overview">
+				
+				<ul>
+					<li>
+						<i class="fa fa-map-marker"></i>
+						<div>
+							<strong>Location:</strong>
+							<span>20180 Outer Dr Dearborn, MI 48124</span>
+						</div>
+					</li>
+					<li>
+						<i class="fa fa-user"></i>
+						<div>
+							<strong>Job Title:</strong>
+							<span>Food Service Specialist</span>
+						</div>
+					</li>
+					<li>
+						<i class="fa fa-clock-o"></i>
+						<div>
+							<strong>Hours:</strong>
+							<span>40h / week</span>
+						</div>
+					</li>
+					<li>
+						<i class="fa fa-money"></i>
+						<div>
+							<strong>Rate:</strong>
+							<span>$9.50 - $12.50 / hour</span>
+						</div>
+					</li>
+				</ul>
+
+
+				<a href="#small-dialog" class="popup-with-zoom-anim button">Apply For This Job</a>
+
+				<div id="small-dialog" class="zoom-anim-dialog mfp-hide apply-popup">
+					<div class="small-dialog-headline">
+						<h2>Apply For This Job</h2>
+					</div>
+
+					<div class="small-dialog-content">
+						<form action="#" method="get" >
+							<input type="text" placeholder="Full Name" value=""/>
+							<input type="text" placeholder="Email Address" value=""/>
+							<textarea placeholder="Your message / cover letter sent to the employer"></textarea>
+
+							<!-- Upload CV -->
+							<div class="upload-info"><strong>Upload your CV (optional)</strong> <span>Max. file size: 5MB</span></div>
+							<div class="clearfix"></div>
+
+							<label class="upload-btn">
+							    <input type="file" multiple />
+							    <i class="fa fa-upload"></i> Browse
+							</label>
+							<span class="fake-input">No file selected</span>
+
+							<div class="divider"></div>
+
+							<button class="send">Send Application</button>
+						</form>
+					</div>
+					
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+	<!-- Widgets / End -->
+
+
 </div>
 @include('footer')
 
