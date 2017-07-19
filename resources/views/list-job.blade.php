@@ -14,29 +14,33 @@
 		</form> --}}
 
 		<ul class="job-list full">
-            @foreach($loker as $lok)
-                <li><a href="{{ route('detailsjob',$lok->t_job_vacancy_id) }}">
-                    <img src="http://hrms.com/images/{{ $lok->lokasi->logo }}" alt="logo">
-                    <div class="job-list-content">
-                        <h4>{{ $lok->jabatan->nama }} 
-                        @if($lok->status_pekerjaan->nama=="Casual")
-                            <span class="full-time">{{ $lok->status_pekerjaan->nama }}</span></h4>
-                        @elseif($lok->status_pekerjaan->nama=="Kontrak")
-                            <span class="part-time">{{ $lok->status_pekerjaan->nama }}</span></h4>
-                        @elseif($lok->status_pekerjaan->nama=="Daily Worker")
-                            <span class="temporary">{{ $lok->status_pekerjaan->nama }}</span></h4>
-                        @else
-                            <span class="internship">{{ $lok->status_pekerjaan->nama }}</span></h4>
-                        @endif
-                        <div class="job-icons">
-                            <span><i class="fa fa-calendar"></i> {{$lok->tgl_akhir}}</span>
-                            <span><i class="fa fa-map-marker"></i> {{ $lok->lokasi->nama}}</span>
+            @if($loker!=null)
+                @foreach($loker as $lok)
+                    <li><a href="{{ route('detailsjob',$lok->t_job_vacancy_id) }}">
+                        <img src="http://hrms.com/images/{{ $lok->lokasi->logo }}" alt="logo">
+                        <div class="job-list-content">
+                            <h4>{{ $lok->jabatan->nama }} 
+                            @if($lok->status_pekerjaan->nama=="Casual")
+                                <span class="full-time">{{ $lok->status_pekerjaan->nama }}</span></h4>
+                            @elseif($lok->status_pekerjaan->nama=="Kontrak")
+                                <span class="part-time">{{ $lok->status_pekerjaan->nama }}</span></h4>
+                            @elseif($lok->status_pekerjaan->nama=="Daily Worker")
+                                <span class="temporary">{{ $lok->status_pekerjaan->nama }}</span></h4>
+                            @else
+                                <span class="internship">{{ $lok->status_pekerjaan->nama }}</span></h4>
+                            @endif
+                            <div class="job-icons">
+                                <span><i class="fa fa-calendar"></i> {{$lok->tgl_akhir}}</span>
+                                <span><i class="fa fa-map-marker"></i> {{ $lok->lokasi->nama}}</span>
+                            </div>
                         </div>
-                    </div>
-                    </a>
-                    <div class="clearfix"></div>
-                </li>
-            @endforeach
+                        </a>
+                        <div class="clearfix"></div>
+                    </li>
+                @endforeach
+            @else
+            <h4 style="text-align:center">Sory, Job not available</h4>
+            @endif
 		</ul>
 		<div class="clearfix"></div>
 
@@ -73,13 +77,21 @@
 				<select class="chosen-select-no-single ico-02" name="posisi">
                     <option value="0">All Position</option>
                     @foreach($posisi as $p)
-                        <option value="{{$p->jabatan->m_jabatan_id}}">{{$p->jabatan->nama}}</option>
+                        @if(isset($m_jabatan_id))
+                            @if($m_jabatan_id==$p->jabatan->m_jabatan_id)
+                                <option value="{{$p->jabatan->m_jabatan_id}}" selected>{{$p->jabatan->nama}}</option>
+                            @else
+                                <option value="{{$p->jabatan->m_jabatan_id}}">{{$p->jabatan->nama}}</option>
+                            @endif
+                        @else
+                            <option value="{{$p->jabatan->m_jabatan_id}}">{{$p->jabatan->nama}}</option>
+                        @endif
                     @endforeach
                 </select>
 
                 <h4>Location</h4>
-				{!! Form::select('lokasi', $lokasi, null, ['class'=> 'chosen-select-no-single ico-02']) !!}
-                
+				{!! Form::select('lokasi', $lokasi, isset($m_lokasi_id) ? $m_lokasi_id : null, ['class'=> 'chosen-select-no-single ico-02']) !!}
+
                 <h4>Job Type</h4>
                 <ul class="checkboxes">
                     <li>

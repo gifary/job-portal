@@ -443,7 +443,7 @@
             <div class="col-lg-3 col-md-6 col-xs-12">
                 <div class="form-group {!! $errors->has('hubungan[2]') ? 'has-error' : '' !!}">
                   {!! Form::label('hubungan', 'Hubungan') !!}
-                  {!! Form::select('hubungan[2]', array("brother"=> "Saudara/Anak laki-laki", "sister"=>"Saudara/Anak perempuan", "wife"=> "Istri","husband"=>"Suami") , null,['class'=>'form-control']) !!}
+                  {!! Form::select('hubungan[2]', array("Saudara/Anak laki-laki"=> "Saudara/Anak laki-laki", "Saudara/Anak perempuan"=>"Saudara/Anak perempuan", "Istri"=> "Istri","Suami"=>"Suami") , null,['class'=>'form-control']) !!}
                   {!! $errors->first('hubungan', '<p class="help-block">:message</p>') !!}
                 </div>    
             </div>
@@ -476,7 +476,7 @@
             <div class="col-lg-3 col-md-6 col-xs-12">
                 <div class="form-group {!! $errors->has('hubungan[3]') ? 'has-error' : '' !!}">
                   {!! Form::label('hubungan', 'Hubungan') !!}
-                  {!! Form::select('hubungan[3]', array("brother"=> "Saudara/Anak laki-laki", "sister"=>"Saudara/Anak perempuan", "wife"=> "Istri","husband"=>"Suami") , null,['class'=>'form-control']) !!}
+                  {!! Form::select('hubungan[3]', array("Saudara/Anak laki-laki"=> "Saudara/Anak laki-laki", "Saudara/Anak perempuan"=>"Saudara/Anak perempuan", "Istri"=> "Istri","Suami"=>"Suami") , null,['class'=>'form-control']) !!}
                   {!! $errors->first('hubungan[3]', '<p class="help-block">:message</p>') !!}
                 </div>    
             </div>
@@ -509,7 +509,7 @@
             <div class="col-lg-3 col-md-6 col-xs-12">
                 <div class="form-group {!! $errors->has('hubungan[4]') ? 'has-error' : '' !!}">
                   {!! Form::label('hubungan[4]', 'Hubungan') !!}
-                  {!! Form::select('hubungan[4]', array("brother"=> "Saudara/Anak laki-laki", "sister"=>"Saudara/Anak perempuan", "wife"=> "Istri","husband"=>"Suami") , null,['class'=>'form-control']) !!}
+                  {!! Form::select('hubungan[4]', array("Saudara/Anak laki-laki"=> "Saudara/Anak laki-laki", "Saudara/Anak perempuan"=>"Saudara/Anak perempuan", "Istri"=> "Istri","Suami"=>"Suami") , null,['class'=>'form-control']) !!}
                   {!! $errors->first('hubungan[4]', '<p class="help-block">:message</p>') !!}
                 </div>    
             </div>
@@ -560,14 +560,28 @@
         transitionEffect: "slideLeft",
         onFinished: function (event, currentIndex)
         {
-            var form = $("#form-recrutiment");
+          var form = $("#form-recrutiment");
+          swal({
+            title: "Are you sure?",
+            text: "By submit data I aggree for privacy policy",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, I am Sure!",
+            closeOnConfirm: false
+          },
+          function(){
+            form.submit();
+          });
+
+           /* var form = $("#form-recrutiment");
             // Submit form input
             var result = confirm("Apakah data yang diisi sudah benar ?");
             if (result) {
               form.submit();
             }else{
               return false;
-            }
+            } */
             
         }
     });

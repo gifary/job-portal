@@ -142,8 +142,13 @@ class ListJobController extends Controller
         ->post();
 
         $res = json_decode($response);
-        $loker = $res->data;
-        return view('list-job',compact("lokasi","posisi","loker"));
+        $loker = null;
+        if($res->data!=null){
+            $loker = $res->data->data;
+        }
+        $m_lokasi_id = $request->input("lokasi");
+        $m_jabatan_id = $request->input("posisi");
+        return view('list-job',compact("lokasi","posisi","loker","m_lokasi_id","m_jabatan_id"));
     }
 
     public function detailsjob($id){
@@ -167,6 +172,7 @@ class ListJobController extends Controller
     public function contact(){
          return view('contact');
     }
+
     public function apply_job($id,$m_lokasi_id){
         $id = base64_decode($id);
         $m_lokasi_id = base64_decode($m_lokasi_id);

@@ -91,16 +91,16 @@
 	<!-- Information -->
 	<h3 class="margin-bottom-10">Information</h3>
 	<div class="widget-box">
-		<p>Morbi eros bibendum lorem ipsum dolor pellentesque pellentesque bibendum. </p>
+		<p>Please,sent us a message </p>
 
 		<ul class="contact-informations">
-			<li>45 Park Avenue, Apt. 303</li>
-			<li>New York, NY 10016 </li>
+			<li>Jl. Cihampelas No.211-217, Cipaganti, Coblong,Kota Bandung,  </li>
+			<li>Jawa Barat 40131, Indonesia </li>
 		</ul>
 
 		<ul class="contact-informations second">
-			<li><i class="fa fa-phone"></i> <p>+48 880 440 110</p></li>
-			<li><i class="fa fa-envelope"></i> <p>mail@example.com</p></li>
+			<li><i class="fa fa-phone"></i> <p>+62 22 82021220</p></li>
+			<li><i class="fa fa-envelope"></i> <p>info@sas-hospitality.com</p></li>
 			<li><i class="fa fa-globe"></i> <p>www.sas-hospitality.com</p></li>
 		</ul>
 
