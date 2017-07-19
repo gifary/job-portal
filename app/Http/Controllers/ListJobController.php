@@ -148,6 +148,7 @@ class ListJobController extends Controller
         }
         $m_lokasi_id = $request->input("lokasi");
         $m_jabatan_id = $request->input("posisi");
+        
         return view('list-job',compact("lokasi","posisi","loker","m_lokasi_id","m_jabatan_id"));
     }
 

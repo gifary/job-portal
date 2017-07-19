@@ -34,7 +34,7 @@
 		
 		<!-- Company Info -->
 		<div class="company-info">
-			<img src="http://hrms.com/images/{{ $loker->lokasi->logo }}" alt="">
+			<img src="{{Config::get('server.image_url')}}{{ $loker->lokasi->logo }}" alt="logo">
 			<div class="content">
 				<h4>{{ $loker->jabatan->nama }}</h4>
 				{{-- <span><a href="#"><i class="fa fa-link"></i> Website</a></span>

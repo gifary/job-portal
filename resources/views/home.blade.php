@@ -57,7 +57,7 @@
 			@if($loker!=null)
 				@foreach($loker as $lok)
 					<li><a href="{{ route('detailsjob',$lok->t_job_vacancy_id) }}">
-						<img src="http://hrms.com/images/{{ $lok->lokasi->logo }}" alt="logo">
+						<img src="{{Config::get('server.image_url')}}{{ $lok->lokasi->logo }}" alt="logo">
 						<div class="job-list-content">
 							<h4>{{ $lok->jabatan->nama }} 
 							@if($lok->status_pekerjaan->nama=="Casual")

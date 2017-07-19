@@ -19,7 +19,23 @@
   background: #74cc9a;
 }
 </style>
-<div class="container" style="width:100%; ">
+<div id="titlebar" class="single">
+	<div class="container">
+
+		<div class="sixteen columns">
+			<h2>Apply Job</h2>
+			<nav id="breadcrumbs">
+				<ul>
+					<li>You are here:</li>
+					<li><a href="{{route('home')}}">Home</a></li>
+					<li>Apply Job</li>
+				</ul>
+			</nav>
+		</div>
+
+	</div>
+</div>
+<div class="container" style="width:100%;">
   {!! Form::open(['route' => ['postjob',$id,$m_lokasi_id], 'method' => 'post', "id"=>"form-recrutiment",'files' => true]) !!}
    <div id="profileForm" class="single">
     <div class="wajib">

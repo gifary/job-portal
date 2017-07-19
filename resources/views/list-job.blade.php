@@ -1,5 +1,21 @@
 @include('headers2')
 
+<div id="titlebar" class="single">
+	<div class="container">
+
+		<div class="sixteen columns">
+			<h2>Browse Jobs</h2>
+			<nav id="breadcrumbs">
+				<ul>
+					<li>You are here:</li>
+					<li><a href="{{route('home')}}">Home</a></li>
+					<li>Browse Jobs</li>
+				</ul>
+			</nav>
+		</div>
+
+	</div>
+</div>
 <!-- Content
 ================================================== -->
 <div class="container" style="margin-top:50px;">
@@ -17,7 +33,7 @@
             @if($loker!=null)
                 @foreach($loker as $lok)
                     <li><a href="{{ route('detailsjob',$lok->t_job_vacancy_id) }}">
-                        <img src="http://hrms.com/images/{{ $lok->lokasi->logo }}" alt="logo">
+                        <img src="{{Config::get('server.image_url')}}{{ $lok->lokasi->logo }}" alt="logo">
                         <div class="job-list-content">
                             <h4>{{ $lok->jabatan->nama }} 
                             @if($lok->status_pekerjaan->nama=="Casual")
@@ -72,7 +88,7 @@
 
 		<!-- Location -->
 		<div class="widget">
-            <form action="#" method="get">
+            <form action="{{route('search')}}" method="post">
 			    <h4>Position</h4>
 				<select class="chosen-select-no-single ico-02" name="posisi">
                     <option value="0">All Position</option>
