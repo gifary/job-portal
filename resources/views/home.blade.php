@@ -26,9 +26,9 @@
 					
 				{!! Form::close() !!}
 				<!-- Browse Jobs -->
-				<div class="browse-jobs">
+				{{-- <div class="browse-jobs">
 					Browse job offers by <a href="#"> Department</a> or <a href="#">location</a>
-				</div>
+				</div> --}}
 				
 				<!-- Announce -->
 				<div class="announce">
@@ -122,7 +122,7 @@
 										<span><i class="fa fa-calendar"></i> {{$lok->tgl_akhir}}</span>
 										<span><i class="fa fa-map-marker"></i> {{ $lok->lokasi->nama}}</span>
 										<p>{{ $lok->deskripsi}}</p>
-										<a href="job-page.html" class="button">Apply For This Job</a>
+										<a href="{{route('applyjob',[base64_encode($lok->jabatan->m_jabatan_id),base64_encode($lok->lokasi->m_lokasi_id)])}}" class="button">Apply For This Job</a>
 									</div>
 								</li>
 							@endforeach

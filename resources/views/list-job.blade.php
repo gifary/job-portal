@@ -59,26 +59,6 @@
             @endif
 		</ul>
 		<div class="clearfix"></div>
-
-		{{-- <div class="pagination-container">
-			<nav class="pagination">
-				<ul>
-					<li><a href="#" class="current-page">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li class="blank">...</li>
-					<li><a href="#">22</a></li>
-				</ul>
-			</nav>
-
-			<nav class="pagination-next-prev">
-				<ul>
-					<li><a href="#" class="prev">Previous</a></li>
-					<li><a href="#" class="next">Next</a></li>
-				</ul>
-			</nav>
-		</div> --}}
-
 	</div>
 	</div>
 
@@ -89,6 +69,7 @@
 		<!-- Location -->
 		<div class="widget">
             <form action="{{route('search')}}" method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 			    <h4>Position</h4>
 				<select class="chosen-select-no-single ico-02" name="posisi">
                     <option value="0">All Position</option>
@@ -111,23 +92,51 @@
                 <h4>Job Type</h4>
                 <ul class="checkboxes">
                     <li>
-                        <input id="check-1" type="checkbox" name="status_pekerjaan[]" value="0" checked>
+                        <input id="check-1" type="checkbox" name="status_pekerjaan[]" value="0" 
+                        @if(isset($status_pekerjaan))
+                            @if(in_array(0,$status_pekerjaan)) 
+                                checked 
+                            @else
+                            @endif 
+                        @else 
+                            checked 
+                        @endif >
                         <label for="check-1">Any Type</label>
                     </li>
                     <li>
-                        <input id="check-2" type="checkbox" name="status_pekerjaan[]" value="1">
+                        <input id="check-2" type="checkbox" name="status_pekerjaan[]" value="1"
+                        @if(isset($status_pekerjaan))
+                            @if(in_array(1,$status_pekerjaan)) 
+                                checked 
+                            @endif 
+                        @endif >
                         <label for="check-2">Kontrak</label>
                     </li>
                     <li>
-                        <input id="check-3" type="checkbox" name="status_pekerjaan[]" value="2">
+                        <input id="check-3" type="checkbox" name="status_pekerjaan[]" value="2"
+                        @if(isset($status_pekerjaan))
+                            @if(in_array(2,$status_pekerjaan)) 
+                                checked 
+                            @endif 
+                        @endif>
                         <label for="check-3">Casual</label>
                     </li>
                     <li>
-                        <input id="check-4" type="checkbox" name="status_pekerjaan[]" value="5">
+                        <input id="check-4" type="checkbox" name="status_pekerjaan[]" value="5"
+                        @if(isset($status_pekerjaan))
+                            @if(in_array(5,$status_pekerjaan)) 
+                                checked 
+                            @endif 
+                        @endif>
                         <label for="check-4">Daily Worker</label>
                     </li>
                     <li>
-                        <input id="check-5" type="checkbox" name="status_pekerjaan[]" value="6">
+                        <input id="check-5" type="checkbox" name="status_pekerjaan[]" value="6"
+                        @if(isset($status_pekerjaan))
+                            @if(in_array(6,$status_pekerjaan)) 
+                                checked 
+                            @endif 
+                        @endif>
                         <label for="check-5">Interns</label>
                     </li>
                 </ul>
