@@ -6,7 +6,7 @@
 	<!-- Main -->
 	<div class="container">
 
-		<div class="ten columns">
+		<div class="six columns">
 			<h4>About</h4>
 			<p>
 				SAS HOSPITALITY is a partner for Hotel Owner / Investor in order to Lease, manage and operate their Hotel with spiritually passion.<br>
@@ -14,19 +14,37 @@
 			</p>
 		</div>
 
+		<div class="six columns">
+			<h4>Vission</h4>
+			<p>
+				To become Hospitality company which bringing goodness
+			</p>
+			<h4>MISION</h4>
+			<p>
+				To Think and act with hearth
+			</p>
+			<p>
+				To Work with spiritually mental attitude
+			</p>
+			<p>
+				To Keep owner/Investor trustworthiness 
+			</p>
+		</div>
+
+		
+
 		<div class="three columns">
 			<h4>Company</h4>
 			<ul class="footer-links">
 				<li><a href="#">About Us</a></li>
-				<li><a href="#">Careers</a></li>
-				<li><a href="#">Our Blog</a></li>
+				{{-- <li><a href="#">Careers</a></li>
+				<li><a href="#">Our Blog</a></li> --}}
 				<li><a href="#">Terms of Service</a></li>
 				<li><a href="#">Privacy Policy</a></li>
-				<li><a href="#">Hiring Hub</a></li>
 			</ul>
 		</div>
 		
-		<div class="three columns">
+		{{-- <div class="three columns">
 			<h4>Press</h4>
 			<ul class="footer-links">
 				<li><a href="#">In the News</a></li>
@@ -35,7 +53,7 @@
 				<li><a href="#">Testimonials</a></li>
 				<li><a href="#">Timeline</a></li>
 			</ul>
-		</div>	
+		</div>	 --}}
 	</div>
 
 	<!-- Bottom -->

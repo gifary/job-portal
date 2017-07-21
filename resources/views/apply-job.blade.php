@@ -10,13 +10,13 @@
     position: relative;
 }
 .wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active{
-  background: #26ae61;
+  background: #16465E;
 }
 .wizard > .actions a, .wizard > .actions a:hover, .wizard > .actions a:active{
-  background: #26ae61;
+  background: #16465E;
 }
 .wizard > .steps .done a, .wizard > .steps .done a:hover, .wizard > .steps .done a:active{
-  background: #74cc9a;
+  background: #2B6E90;;
 }
 </style>
 <div id="titlebar" class="single">

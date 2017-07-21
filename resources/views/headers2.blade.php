@@ -22,7 +22,7 @@
 <!-- CSS
 ================================================== -->
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-<link rel="stylesheet" href="{{ asset('css/colors/green.css') }}" id="colors">
+<link rel="stylesheet" href="{{ asset('css/colors/white.css') }}" id="colors">
 <style>
 
 </style>
