@@ -20,15 +20,11 @@
 				To become Hospitality company which bringing goodness
 			</p>
 			<h4>MISION</h4>
-			<p>
-				To Think and act with hearth
-			</p>
-			<p>
-				To Work with spiritually mental attitude
-			</p>
-			<p>
-				To Keep owner/Investor trustworthiness 
-			</p>
+			<ul style="list-style-type:disc">
+				<li>To Think and act with hearth</li>
+				<li>To Work with spiritually mental attitude</li>
+				<li>To Keep owner/Investor trustworthiness </li>
+			</ul>
 		</div>
 
 		
