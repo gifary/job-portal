@@ -84,6 +84,22 @@
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group {!! $errors->has('m_jenis_kelamin') ? 'has-error' : '' !!}">
+              {!! Form::label('m_jenis_kelamin', '*Jenis Kelamin') !!}
+              {!! Form::select('m_jenis_kelamin',$jk, isset($model) ? $model->m_jenis_kelamin: null , ['class'=>'form-control']) !!}
+              {!! $errors->first('m_jenis_kelamin', '<p class="help-block">:message</p>') !!}
+            </div>    
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group {!! $errors->has('salary') ? 'has-error' : '' !!}">
+              {!! Form::label('salary', '*Gajih yang diharapkan') !!}
+              {!! Form::text('salary', isset($model) ? $model->salary: null , ['class'=>'form-control price']) !!}
+              {!! $errors->first('salary', '<p class="help-block">:message</p>') !!}
+            </div>    
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group {!! $errors->has('alamat_ktp') ? 'has-error' : '' !!}">
               {!! Form::label('alamat_ktp', '*Alamat') !!}
               {!! Form::textarea('alamat_ktp', isset($model) ? $model->alamat_ktp: null , ['class'=>'form-control','style'=>'height:150px;']) !!}

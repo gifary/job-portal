@@ -370,6 +370,8 @@ class ListJobController extends Controller
             'pendidikan_terakhir'    => 'required|numeric',
             'posisi_terakhir'         => 'required',
             'alamat_ktp'        => 'required',
+            'm_jenis_kelamin'   => 'required|numeric',
+            'salary'            => 'required',
             'cv'                => 'required|mimes:pdf|max:22000'
         ],$messages);
        
@@ -377,13 +379,14 @@ class ListJobController extends Controller
         $nama_file = explode("/",$path);
         $file_cv = $this->getCurlValue(storage_path('app/'.$path),false,$nama_file[1]);
 
-        $sent_data = $request->only(['email','nama','no_ktp','m_kota_id','m_kota_id_asal','tgl_lahir','no_hp','pendidikan_terakhir','posisi_terakhir','alamat_ktp']);
+        $sent_data = $request->only(['email','nama','no_ktp','m_kota_id','m_kota_id_asal','tgl_lahir','no_hp','pendidikan_terakhir','posisi_terakhir','alamat_ktp','m_jenis_kelamin']);
 
        
         $sent_data['cv'] = $file_cv;
         $sent_data['m_jabatan_id'] = $m_jabatan_id;
         $sent_data['m_lokasi_id'] = $m_lokasi_id;
-      
+        $sent_data['salary'] = str_replace(",","",$request->get("salary"));
+        
         $response = Curl::to($this->base_url."loker")
             ->withContentType('multipart/form-data')
             ->withHeader('Authorization: Bearer '.$this->access_token)
