@@ -370,7 +370,7 @@ class ListJobController extends Controller
             'pendidikan_terakhir'    => 'required|numeric',
             'posisi_terakhir'         => 'required',
             'alamat_ktp'        => 'required',
-            'cv'                => 'required|mimes:pdf|size:2200'
+            'cv'                => 'required|mimes:pdf|max:22000'
         ],$messages);
        
         $path = $request->file('cv')->store('cv');
