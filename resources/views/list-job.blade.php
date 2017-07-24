@@ -36,7 +36,7 @@
                         <img src="{{Config::get('server.image_url')}}{{ $lok->lokasi->logo }}" alt="logo">
                         <div class="job-list-content">
                             <h4>{{ $lok->jabatan->nama }} 
-                            @if($lok->status_pekerjaan->nama=="Casual")
+                            {{-- @if($lok->status_pekerjaan->nama=="Casual")
                                 <span class="full-time">{{ $lok->status_pekerjaan->nama }}</span></h4>
                             @elseif($lok->status_pekerjaan->nama=="Kontrak")
                                 <span class="part-time">{{ $lok->status_pekerjaan->nama }}</span></h4>
@@ -44,7 +44,8 @@
                                 <span class="temporary">{{ $lok->status_pekerjaan->nama }}</span></h4>
                             @else
                                 <span class="internship">{{ $lok->status_pekerjaan->nama }}</span></h4>
-                            @endif
+                            @endif --}}
+                            </h4>
                             <div class="job-icons">
                                 <span><i class="fa fa-calendar"></i> {{$lok->tgl_akhir}}</span>
                                 <span><i class="fa fa-map-marker"></i> {{ $lok->lokasi->nama}}</span>

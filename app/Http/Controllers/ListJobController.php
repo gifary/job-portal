@@ -235,7 +235,7 @@ class ListJobController extends Controller
         return view('apply-job',compact("agama","status","jk","pendidikan","masalah_kesehatan","kota","id","m_lokasi_id"));
     }
 
-    public function post_job(Request $request,$m_jabatan_id,$m_lokasi_id){
+    public function post_job_old(Request $request,$m_jabatan_id,$m_lokasi_id){
 
         $messages = [
             'required' => 'This field is required.',
@@ -342,6 +342,48 @@ class ListJobController extends Controller
                 $k++;
             }
         }
+        $response = Curl::to($this->base_url."loker")
+            ->withContentType('multipart/form-data')
+            ->withHeader('Authorization: Bearer '.$this->access_token)
+            ->withHeader('Accept: application/json')
+            ->withData($sent_data)
+            ->containsFile()
+            ->enableDebug(storage_path('logs/clientlog.txt'))
+            ->post();
+        session()->flash('status', 'Task was successful!');
+        return redirect()->route('home');
+    }
+
+    public function post_job(Request $request,$m_jabatan_id,$m_lokasi_id){
+
+        $messages = [
+            'required' => 'This field is required.',
+        ];
+
+        $this->validate($request, [
+            'nama'              => 'required|string|max:50',
+            'no_ktp'            => 'required|numeric',
+            'm_kota_id_asal'    => 'required|numeric',
+            'tgl_lahir'         => 'required|string',
+            'email'             => 'required|email',
+            'no_hp'             => 'required|numeric',
+            'pendidikan_terakhir'    => 'required|numeric',
+            'posisi_terakhir'         => 'required',
+            'alamat_ktp'        => 'required',
+            'cv'                => 'required|mimes:pdf|size:2200'
+        ],$messages);
+       
+        $path = $request->file('cv')->store('cv');
+        $nama_file = explode("/",$path);
+        $file_cv = $this->getCurlValue(storage_path('app/'.$path),false,$nama_file[1]);
+
+        $sent_data = $request->only(['email','nama','no_ktp','m_kota_id','m_kota_id_asal','tgl_lahir','no_hp','pendidikan_terakhir','posisi_terakhir','alamat_ktp']);
+
+       
+        $sent_data['cv'] = $file_cv;
+        $sent_data['m_jabatan_id'] = $m_jabatan_id;
+        $sent_data['m_lokasi_id'] = $m_lokasi_id;
+      
         $response = Curl::to($this->base_url."loker")
             ->withContentType('multipart/form-data')
             ->withHeader('Authorization: Bearer '.$this->access_token)

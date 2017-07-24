@@ -5,15 +5,17 @@
 	<div class="container">
 		<div class="ten columns">
 			<span><a href="browse-jobs.html">{{ $loker->departemen->nama }}</a></span>
-			<h2>{{ $loker->jabatan->nama }} @if($loker->status_pekerjaan->nama=="Casual")
-											<span class="full-time">{{ $loker->status_pekerjaan->nama }}</span></h4>
-										@elseif($loker->status_pekerjaan->nama=="Kontrak")
-											<span class="part-time">{{ $loker->status_pekerjaan->nama }}</span></h4>
-										@elseif($loker->status_pekerjaan->nama=="Daily Worker")
-											<span class="temporary">{{ $loker->status_pekerjaan->nama }}</span></h4>
-										@else
-											<span class="internship">{{ $loker->status_pekerjaan->nama }}</span></h4>
-										@endif</h2>
+			<h2>{{ $loker->jabatan->nama }} 
+				{{-- @if($loker->status_pekerjaan->nama=="Casual")
+					<span class="full-time">{{ $loker->status_pekerjaan->nama }}</span></h4>
+				@elseif($loker->status_pekerjaan->nama=="Kontrak")
+					<span class="part-time">{{ $loker->status_pekerjaan->nama }}</span></h4>
+				@elseif($loker->status_pekerjaan->nama=="Daily Worker")
+					<span class="temporary">{{ $loker->status_pekerjaan->nama }}</span></h4>
+				@else
+					<span class="internship">{{ $loker->status_pekerjaan->nama }}</span></h4>
+				@endif --}}
+			</h2>
 		</div>
 
 		{{-- <div class="six columns">

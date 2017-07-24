@@ -1,7 +1,7 @@
 @include('header')
 <!-- Banner
 ================================================== -->
-<div id="banner" class="with-transparent-header parallax background" style="background-image: url(images/banner-home-02.jpg)" data-img-width="2000" data-img-height="1330" data-diff="300">
+{{-- <div id="banner" class="with-transparent-header parallax background" style="background-image: url(images/banner-home-02.jpg)" data-img-width="2000" data-img-height="1330" data-diff="300">
 	<div class="container">
 		<div class="sixteen columns">
 			
@@ -25,10 +25,6 @@
 					<button style="height:48px;"><i class="fa fa-search"></i></button>
 					
 				{!! Form::close() !!}
-				<!-- Browse Jobs -->
-				{{-- <div class="browse-jobs">
-					Browse job offers by <a href="#"> Department</a> or <a href="#">location</a>
-				</div> --}}
 				
 				<!-- Announce -->
 				<div class="announce">
@@ -39,8 +35,52 @@
 
 		</div>
 	</div>
-</div>
+</div> --}}
+<!-- Slider
+================================================== -->
+<div class="fullwidthbanner-container">
+	<div class="fullwidthbanner">
+		<ul>
 
+			<!-- Slide 1 -->
+			<li data-fstransition="fade" data-transition="fade" data-slotamount="10" data-masterspeed="300">
+
+				<img src="images/banner-home-02.jpg" alt="" >
+
+				<div class="caption title sfb" data-x="0" data-y="195" data-speed="400" data-start="800"  data-easing="easeOutExpo">
+					<h2>Explore and be discovered</h2>
+				</div>
+
+				<div class="caption text sfb" data-x="0" data-y="270" data-speed="400" data-start="1200" data-easing="easeOutExpo">
+					<p>Connect directly with and be discovered by the employers <br>who want to hire you.</p>
+				</div>
+
+				{{-- <div class="caption sfb" data-x="0" data-y="400" data-speed="400" data-start="1600" data-easing="easeOutExpo">
+					<a href="my-account.html" class="slider-button">Get Started</a>
+				</div> --}}
+			</li>
+
+			<!-- Slide 2 -->
+			<li data-transition="slideup" data-slotamount="10" data-masterspeed="800">
+				<img src="images/banner-home-01.jpg" alt="">
+
+				<div class="caption title sfb" data-x="center" data-y="195" data-speed="400" data-start="800"  data-easing="easeOutExpo">
+					<h2>Hire great hourly employees</h2>
+				</div>
+
+				<div class="caption text align-center sfb" data-x="center" data-y="270" data-speed="400" data-start="1200" data-easing="easeOutExpo">
+					<p>Sas Hospitality is most trusted job board, connecting the world's <br> brightest minds with resume database loaded with talents.</p>
+				</div>
+
+				{{-- <div class="caption sfb" data-x="center" data-y="400" data-speed="400" data-start="1600" data-easing="easeOutExpo">
+					<a href="add-job.html" class="slider-button">Hire</a>
+					<a href="browse-jobs.html" class="slider-button">Work</a>
+				</div> --}}
+			</li>
+
+		</ul>
+	</div>
+</div>
 
 <!-- Content
 ================================================== -->
@@ -60,15 +100,16 @@
 						<img src="{{Config::get('server.image_url')}}{{ $lok->lokasi->logo }}" alt="logo">
 						<div class="job-list-content">
 							<h4>{{ $lok->jabatan->nama }} 
-							@if($lok->status_pekerjaan->nama=="Casual")
-								<span class="full-time">{{ $lok->status_pekerjaan->nama }}</span></h4>
+							{{-- @if($lok->status_pekerjaan->nama=="Casual")
+								<span class="full-time">{{ $lok->status_pekerjaan->nama }}</span>
 							@elseif($lok->status_pekerjaan->nama=="Kontrak")
-								<span class="part-time">{{ $lok->status_pekerjaan->nama }}</span></h4>
+								<span class="part-time">{{ $lok->status_pekerjaan->nama }}</span>
 							@elseif($lok->status_pekerjaan->nama=="Daily Worker")
-								<span class="temporary">{{ $lok->status_pekerjaan->nama }}</span></h4>
+								<span class="temporary">{{ $lok->status_pekerjaan->nama }}</span>
 							@else
-								<span class="internship">{{ $lok->status_pekerjaan->nama }}</span></h4>
-							@endif
+								<span class="internship">{{ $lok->status_pekerjaan->nama }}</span>
+							@endif --}}
+							</h4>
 							<div class="job-icons">
 								<span><i class="fa fa-calendar"></i> {{$lok->tgl_akhir}}</span>
 								<span><i class="fa fa-map-marker"></i> {{ $lok->lokasi->nama}}</span>
@@ -91,6 +132,32 @@
 
 	<!-- Job Spotlight -->
 	<div class="five columns">
+		<!-- Location -->
+		<div class="widget">
+            <form action="{{route('search')}}" method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+			    <h4>Position</h4>
+				<select class="chosen-select-no-single ico-02" name="posisi">
+                    <option value="0">All Position</option>
+                    @foreach($posisi as $p)
+                        @if(isset($m_jabatan_id))
+                            @if($m_jabatan_id==$p->jabatan->m_jabatan_id)
+                                <option value="{{$p->jabatan->m_jabatan_id}}" selected>{{$p->jabatan->nama}}</option>
+                            @else
+                                <option value="{{$p->jabatan->m_jabatan_id}}">{{$p->jabatan->nama}}</option>
+                            @endif
+                        @else
+                            <option value="{{$p->jabatan->m_jabatan_id}}">{{$p->jabatan->nama}}</option>
+                        @endif
+                    @endforeach
+                </select>
+
+                <h4>Location</h4>
+				{!! Form::select('lokasi', $lokasi, isset($m_lokasi_id) ? $m_lokasi_id : null, ['class'=> 'chosen-select-no-single ico-02']) !!}
+                <button class="button" style="margin-top:15px">Search</button>
+			</form>
+		</div>
+
 		<h3 class="margin-bottom-5">Job Spotlight</h3>
 
 		<!-- Navigation -->
@@ -134,6 +201,7 @@
 			</div>
 		</div>
 
+		
 	</div>
 </div>
 
