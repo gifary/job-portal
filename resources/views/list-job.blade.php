@@ -90,7 +90,7 @@
                 <h4>Location</h4>
 				{!! Form::select('lokasi', $lokasi, isset($m_lokasi_id) ? $m_lokasi_id : null, ['class'=> 'chosen-select-no-single ico-02']) !!}
 
-                <h4>Job Type</h4>
+                {{-- <h4>Job Type</h4>
                 <ul class="checkboxes">
                     <li>
                         <input id="check-1" type="checkbox" name="status_pekerjaan[]" value="0" 
@@ -140,7 +140,7 @@
                         @endif>
                         <label for="check-5">Interns</label>
                     </li>
-                </ul>
+                </ul> --}}
                 <button class="button" style="margin-top:15px">Filter</button>
 			</form>
 		</div>

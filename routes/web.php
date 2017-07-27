@@ -13,6 +13,7 @@
 
 Route::get('/', 'ListJobController@index')->name('home');
 Route::post('/search', 'ListJobController@search')->name('search');
+Route::get('/search', 'ListJobController@search')->name('search');
 Route::get('/listjob', 'ListJobController@listjob')->name('listjob');
 Route::get('/detailsjob/{id}', 'ListJobController@detailsjob')->name('detailsjob');
 Route::get('/applyjob/{id}/{m_lokasi_id}', 'ListJobController@apply_job')->name('applyjob');

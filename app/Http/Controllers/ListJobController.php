@@ -135,13 +135,13 @@ class ListJobController extends Controller
 
         $m_lokasi_id = $request->input("lokasi");
         $m_jabatan_id = $request->input("posisi");
-        $status_pekerjaan = $request->input('status_pekerjaan');
+        //$status_pekerjaan = $request->input('status_pekerjaan');
 
         $response = Curl::to($this->base_url."loker/search")
         ->withHeader('Authorization: Bearer '.$this->access_token)
         ->withHeader('Accept: application/json')
         ->enableDebug(storage_path('logs/clientlog.txt'))
-        ->withData(array("lokasi"=>$m_lokasi_id,"posisi"=>$m_jabatan_id,"status_pekerjaan"=>$status_pekerjaan,"limit"=>10))
+        ->withData(array("lokasi"=>$m_lokasi_id,"posisi"=>$m_jabatan_id,"status_pekerjaan"=>0,"limit"=>10))
         ->post();
 
         $res = json_decode($response);
@@ -150,7 +150,7 @@ class ListJobController extends Controller
             $loker = $res->data->data;
         }
        
-        return view('list-job',compact("lokasi","posisi","loker","m_lokasi_id","m_jabatan_id",'status_pekerjaan'));
+        return view('list-job',compact("lokasi","posisi","loker","m_lokasi_id","m_jabatan_id"));
     }
 
     public function detailsjob($id){
