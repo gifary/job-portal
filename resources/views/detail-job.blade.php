@@ -46,18 +46,18 @@
 		</div>
 
 		<p class="margin-reset">
-		  {{ $loker->deskripsi }}
+		  {{ $loker->deskripsi_indonesia }}
 		</p>
 
 		<br>
 		<p><strong>Job Deskripsi {{ $loker->jabatan->nama }}</strong>:</p>
-    {!! $loker->jabatan->job_deskripsi !!}
+    {!! $loker->jabatan->job_deskripsi_indonesia !!}
 		
 		<br>
 
 		<h4 class="margin-bottom-10">Perysaratan</h4>
 
-	  {!! $loker->keterangan !!}
+	  {!! $loker->keterangan_indonesia !!}
 
 	</div>
 	</div>

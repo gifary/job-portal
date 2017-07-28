@@ -177,18 +177,19 @@
 								<li>
 									<div class="job-spotlight">
 										<a href="#"><h4>{{ $lok->jabatan->nama }}  
-										@if($lok->status_pekerjaan->nama=="Casual")
-											<span class="full-time">{{ $lok->status_pekerjaan->nama }}</span></h4>
+										{{-- @if($lok->status_pekerjaan->nama=="Casual")
+											<span class="full-time">{{ $lok->status_pekerjaan->nama }}</span>
 										@elseif($lok->status_pekerjaan->nama=="Kontrak")
-											<span class="part-time">{{ $lok->status_pekerjaan->nama }}</span></h4>
+											<span class="part-time">{{ $lok->status_pekerjaan->nama }}</span>
 										@elseif($lok->status_pekerjaan->nama=="Daily Worker")
-											<span class="temporary">{{ $lok->status_pekerjaan->nama }}</span></h4>
+											<span class="temporary">{{ $lok->status_pekerjaan->nama }}</span>
 										@else
-											<span class="internship">{{ $lok->status_pekerjaan->nama }}</span></h4>
-										@endif</h4></a>
+											<span class="internship">{{ $lok->status_pekerjaan->nama }}</span>
+										@endif --}}
+										</h4></a>
 										<span><i class="fa fa-calendar"></i> {{$lok->tgl_akhir}}</span>
 										<span><i class="fa fa-map-marker"></i> {{ $lok->lokasi->nama}}</span>
-										<p>{{ $lok->deskripsi}}</p>
+										<p>{{ $lok->deskripsi_indonesia}}</p>
 										<a href="{{route('applyjob',[base64_encode($lok->jabatan->m_jabatan_id),base64_encode($lok->lokasi->m_lokasi_id)])}}" class="button">Apply For This Job</a>
 									</div>
 								</li>
