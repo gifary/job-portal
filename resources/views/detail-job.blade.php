@@ -46,19 +46,31 @@
 		</div>
 
 		<p class="margin-reset">
-		  {{ $loker->deskripsi_indonesia }}
+			@if(App::isLocale('id'))
+				{{ $loker->deskripsi_indonesia }}
+			@else
+				{{ $loker->deskripsi_english }}
+			@endif
 		</p>
 
 		<br>
-		<p><strong>Job Deskripsi {{ $loker->jabatan->nama }}</strong>:</p>
-    {!! $loker->jabatan->job_deskripsi_indonesia !!}
+		<p><strong>{{trans('common.job_desc')}} {{ $loker->jabatan->nama }}</strong>:</p>
+		@if(App::isLocale('id'))
+				{!! $loker->jabatan->job_deskripsi_indonesia !!}
+		@else
+			{!! $loker->jabatan->job_deskripsi_english !!}
+		@endif
+    
 		
 		<br>
 
-		<h4 class="margin-bottom-10">Perysaratan</h4>
-
-	  {!! $loker->keterangan_indonesia !!}
-
+		<h4 class="margin-bottom-10">{{trans('common.requirement')}}</h4>
+		@if(App::isLocale('id'))
+			{!! $loker->keterangan_indonesia !!}
+		@else
+			{!! $loker->keterangan_english !!}
+		@endif
+	  
 	</div>
 	</div>
 
@@ -76,19 +88,19 @@
 					<li>
 						<i class="fa fa-map-marker"></i>
 						<div>
-							<strong>Location:</strong>
+							<strong>{{trans('common.location')}}</strong>
 							<span>{{ $loker->lokasi->nama }}</span>
 						</div>
 					</li>
 					<li>
 						<i class="fa fa-user"></i>
 						<div>
-							<strong>Position:</strong>
+							<strong>{{trans('common.position')}}</strong>
 							<span>{{ $loker->jabatan->nama }}</span>
 						</div>
 					</li>
 				</ul>
-				<a href="{{route('applyjob',[$id,$m_lokasi_id])}} " class="button">Apply For This Job</a>
+				<a href="{{route('applyjob',[$id,$m_lokasi_id])}} " class="button">{{trans('common.apply_job')}}</a>
 			</div>
 
 		</div>

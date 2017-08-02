@@ -5,12 +5,12 @@
 	<div class="container">
 
 		<div class="sixteen columns">
-			<h2>Contact</h2>
+			<h2>{{ trans("contact.title") }}</h2>
 			<nav id="breadcrumbs">
 				<ul>
-					<li>You are here:</li>
+					<li>{{ trans("common.here") }}</li>
 					<li><a href="{{route('home')}}">Home</a></li>
-					<li>Contact</li>
+					<li>{{ trans("contact.title") }}</li>
 				</ul>
 			</nav>
 		</div>
@@ -24,7 +24,7 @@
 <div class="container">
 	<div class="sixteen columns">
 
-		<h3 class="margin-bottom-20">Our Office</h3>
+		<h3 class="margin-bottom-20">{{ trans("contact.our_office") }}</h3>
 
 		<!-- Google Maps -->
 		<section class="google-map-container">
@@ -42,7 +42,7 @@
 
 <div class="eleven columns">
 
-	<h3 class="margin-bottom-15">Contact Form</h3>
+	<h3 class="margin-bottom-15">{{ trans("contact.contact_form") }}</h3>
 	
 		<!-- Contact Form -->
 		<section id="contact" class="padding-right">
@@ -51,28 +51,28 @@
 			<mark id="message"></mark>
 
 			<!-- Form -->
-			<form method="post" name="contactform" id="contactform">
+			<form method="post" name="contactform" id="contactform" action="{{ route('contact') }}">
 
 				<fieldset>
 
 					<div>
-						<label>Name:</label>
+						<label>{{ trans("contact.name") }}</label>
 						<input name="name" type="text" id="name" style="padding: 8px 18px" />
 					</div>
 
 					<div>
-						<label >Email: <span>*</span></label>
+						<label >{{ trans("contact.email") }} <span>*</span></label>
 						<input name="email" type="email" id="email" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" style="padding: 8px 18px" />
 					</div>
 
 					<div>
-						<label>Message: <span>*</span></label>
+						<label>{{ trans("contact.message") }} <span>*</span></label>
 						<textarea name="comment" cols="40" rows="3" id="comment" spellcheck="true"></textarea>
 					</div>
 
 				</fieldset>
 				<div id="result"></div>
-				<input type="submit" class="submit" id="submit" value="Send Message" />
+				<input type="submit" class="submit" id="submit" value='{{ trans("contact.button") }}' />
 				<div class="clearfix"></div>
 				<div class="margin-bottom-40"></div>
 			</form>
@@ -89,9 +89,9 @@
 <div class="five columns">
 
 	<!-- Information -->
-	<h3 class="margin-bottom-10">Information</h3>
+	<h3 class="margin-bottom-10">{{ trans("contact.information") }}</h3>
 	<div class="widget-box">
-		<p>Please,sent us a message </p>
+		<p>{{ trans("contact.title_sent") }} </p>
 
 		<ul class="contact-informations">
 			<li>Jl. Cihampelas No.211-217, Cipaganti, Coblong,Kota Bandung,  </li>
@@ -100,7 +100,7 @@
 
 		<ul class="contact-informations second">
 			<li><i class="fa fa-phone"></i> <p>+62 22 82021220</p></li>
-			<li><i class="fa fa-envelope"></i> <p>info@sas-hospitality.com</p></li>
+			<li><i class="fa fa-envelope"></i> <p>recruitment@sas-hospitality.com</p></li>
 			<li><i class="fa fa-globe"></i> <p>www.sas-hospitality.com</p></li>
 		</ul>
 
@@ -108,7 +108,7 @@
 	
 	<!-- Social -->
 	<div class="widget margin-top-30">
-		<h3 class="margin-bottom-5">Social Media</h3>
+		<h3 class="margin-bottom-5">{{ trans('common.social_media') }}</h3>
 		<ul class="social-icons">
 			<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
 			<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
@@ -125,7 +125,11 @@
 @extends('footer')
 @section('additional-script')
     <!-- Google Maps -->
-    <script>
+<script>
+
+@if(session()->exists('status'))
+	swal("Thanks!", "Your message has been received!", "success")
+@endif
     
     var geocoder;
     var map;

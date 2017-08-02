@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'ListJobController@index')->name('home');
+Route::get('/lang/{locale?}', 'ListJobController@lang')->name('lang');
 Route::post('/search', 'ListJobController@search')->name('search');
 Route::get('/search', 'ListJobController@search')->name('search');
 Route::get('/listjob', 'ListJobController@listjob')->name('listjob');
@@ -21,3 +22,4 @@ Route::post('/applyjob/{id}/{m_lokasi_id}', 'ListJobController@post_job')->name(
 Route::get('/tes', 'ListJobController@download')->name('tes');
 Route::post('/subscribe','ListJobController@subscribe')->name('subscribe');
 Route::get('/contact','ListJobController@contact')->name('contact');
+Route::post('/contact','ListJobController@postContact')->name('contact');

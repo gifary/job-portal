@@ -8,6 +8,9 @@ use Config;
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Storage;
 use App\Subscribe;
+use App;
+use Session;
+use Mail;
 
 /*
     author          : muhammad gifary (muhammadgifary@gmail.com)
@@ -28,6 +31,11 @@ class ListJobController extends Controller
     {
         $this->base_url = Config::get("server.base_url");
         $this->access_token = Config::get("server.access_token");
+    }
+
+    public function lang($locale){
+        Session::put("locale",$locale);
+        return back();
     }
 
     public function index()
@@ -441,6 +449,23 @@ class ListJobController extends Controller
         Subscribe::create($request->only(['email']));
         session()->flash('subscribe', 'Task was successful!');
         return redirect()->route('listjob');
+    }
+
+    public function postContact(Request $request){
+        $messages = [
+            'required' => 'This field is required.',
+        ];
+
+        $this->validate($request, [
+            'name'              => 'required|string|max:50',
+            'email'             => 'required|email',
+            'coment'            => 'required',
+            
+        ],$messages);
+
+        session()->flash('status', 'Task was successful!');
+
+        return redirect()->route('contact');
     }
 
 }

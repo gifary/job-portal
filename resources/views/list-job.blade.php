@@ -7,7 +7,7 @@
 			<h2>Browse Jobs</h2>
 			<nav id="breadcrumbs">
 				<ul>
-					<li>You are here:</li>
+					<li>{{trans('common.here')}}</li>
 					<li><a href="{{route('home')}}">Home</a></li>
 					<li>Browse Jobs</li>
 				</ul>
@@ -56,7 +56,7 @@
                     </li>
                 @endforeach
             @else
-            <h4 style="text-align:center">Sory, Job not available</h4>
+            <h4 style="text-align:center">{{ route('common.not_found') }}</h4>
             @endif
 		</ul>
 		<div class="clearfix"></div>
@@ -71,7 +71,7 @@
 		<div class="widget">
             <form action="{{route('search')}}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-			    <h4>Position</h4>
+			    <h4>{{trans('common.position')}}</h4>
 				<select class="chosen-select-no-single ico-02" name="posisi">
                     <option value="0">All Position</option>
                     @foreach($posisi as $p)
@@ -87,7 +87,7 @@
                     @endforeach
                 </select>
 
-                <h4>Location</h4>
+                <h4>{{trans('common.location')}}</h4>
 				{!! Form::select('lokasi', $lokasi, isset($m_lokasi_id) ? $m_lokasi_id : null, ['class'=> 'chosen-select-no-single ico-02']) !!}
 
                 {{-- <h4>Job Type</h4>

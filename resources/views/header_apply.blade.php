@@ -63,6 +63,14 @@
 				<li> <a href="{{ route('contact') }}">Contact</a>
 				</li>
 			</ul>
+			<ul class="float-right">
+				<li><a href="#">Language</a>
+					<ul>
+						<li><a href="{{route('lang','id')}}"><i class="fa fa-flag"></i> Indonesia</a></li>
+						<li><a href="{{route('lang','en')}}"><i class="fa fa-flag"></i> English</a></li>
+					</ul>
+				</li>
+			</ul>
 		</nav>
 
 		<!-- Navigation -->

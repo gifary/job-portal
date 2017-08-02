@@ -91,7 +91,7 @@
 	<!-- Recent Jobs -->
 	<div class="eleven columns">
 	<div class="padding-right">
-		<h3 class="margin-bottom-25">Recent Jobs</h3>
+		<h3 class="margin-bottom-25">{{ trans('common.recent_job') }}</h3>
 		<ul class="job-list">
 		
 			@if($loker!=null)
@@ -120,11 +120,11 @@
 					</li>
 				@endforeach
 			@else
-			<h4 style="text-align:center">Sory, Job not available</h4>
+			<h4 style="text-align:center">{{ trans('common.not_found') }}</h4>
 			@endif
 		</ul>
 		@if($loker!=null)
-			<a href="{{ route('listjob') }}" class="button centered"><i class="fa fa-plus-circle"></i> Show More Jobs</a>
+			<a href="{{ route('listjob') }}" class="button centered"><i class="fa fa-plus-circle"></i> {{ trans('common.more_job') }}</a>
 		@endif
 		<div class="margin-bottom-55"></div>
 	</div>
@@ -136,7 +136,7 @@
 		<div class="widget">
             <form action="{{route('search')}}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-			    <h4>Position</h4>
+			    <h4>{{ trans('common.position') }}</h4>
 				<select class="chosen-select-no-single ico-02" name="posisi">
                     <option value="0">All Position</option>
                     @foreach($posisi as $p)
@@ -152,13 +152,13 @@
                     @endforeach
                 </select>
 
-                <h4>Location</h4>
+                <h4>{{ trans('common.location') }}</h4>
 				{!! Form::select('lokasi', $lokasi, isset($m_lokasi_id) ? $m_lokasi_id : null, ['class'=> 'chosen-select-no-single ico-02']) !!}
-                <button class="button" style="margin-top:15px">Search</button>
+                <button class="button" style="margin-top:15px">{{ trans('common.search') }}</button>
 			</form>
 		</div>
 
-		<h3 class="margin-bottom-5">Job Spotlight</h3>
+		<h3 class="margin-bottom-5">{{ trans('common.job_spotlight') }}</h3>
 
 		<!-- Navigation -->
 		<div class="showbiz-navigation">
@@ -190,7 +190,7 @@
 										<span><i class="fa fa-calendar"></i> {{$lok->tgl_akhir}}</span>
 										<span><i class="fa fa-map-marker"></i> {{ $lok->lokasi->nama}}</span>
 										<p>{{ $lok->deskripsi_indonesia}}</p>
-										<a href="{{route('applyjob',[base64_encode($lok->jabatan->m_jabatan_id),base64_encode($lok->lokasi->m_lokasi_id)])}}" class="button">Apply For This Job</a>
+										<a href="{{route('applyjob',[base64_encode($lok->jabatan->m_jabatan_id),base64_encode($lok->lokasi->m_lokasi_id)])}}" class="button">{{ trans('common.apply_job') }}</a>
 									</div>
 								</li>
 							@endforeach
