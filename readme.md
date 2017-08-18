@@ -9,7 +9,7 @@
 
 ## About JOB PORTAL
 
-This is web application for build website <a href="www.job.grandtjokro.com">Job Sas Hospitality</a>. This site not use database, all data getting from primary website what I build to using laravel and combine with fitur laravel passport to create API. So if you want to clone this website you MUST create API to supply data to this site.
+This is web application for build website <a href="http://job.grandtjokro.com/" target="_blank">Job Sas Hospitality</a>. This site not use database, all data getting from primary website what I build to using laravel and combine with fitur laravel passport to create API. So if you want to clone this website you MUST create API to supply data to this site.
 
 ## How to install
 1. Clone this repository
