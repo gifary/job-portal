@@ -5,12 +5,6 @@
 
 		<div class="sixteen columns">
 			<h2>Browse Jobs</h2>
-			<nav id="breadcrumbs">
-				<ul>
-					<li>{{ trans("common.here") }} ></li>
-					<li>Browse Jobs</li>
-				</ul>
-			</nav>
 		</div>
 
 	</div>

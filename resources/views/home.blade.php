@@ -48,10 +48,10 @@
 				<img src="images/banner-home-02.jpg" alt="" >
 
 				<div class="caption title sfb" data-x="0" data-y="195" data-speed="400" data-start="800"  data-easing="easeOutExpo">
-					<h2>Explore and be discovered</h2>
+					<h2 style="background:#343836cc; padding:5px">Explore and be discovered</h2>
 				</div>
 
-				<div class="caption text sfb" data-x="0" data-y="270" data-speed="400" data-start="1200" data-easing="easeOutExpo">
+				<div class="caption text sfb" data-x="0" data-y="270" data-speed="400" data-start="1200" data-easing="easeOutExpo" style="background:#343836cc; padding:5px">
 					<p>Connect directly with and be discovered by the employers <br>who want to hire you.</p>
 				</div>
 
@@ -65,10 +65,10 @@
 				<img src="images/banner-home-01.jpg" alt="">
 
 				<div class="caption title sfb" data-x="center" data-y="195" data-speed="400" data-start="800"  data-easing="easeOutExpo">
-					<h2>Hire great hourly employees</h2>
+					<h2 style="background:#343836cc; padding:5px">Hire great hourly employees</h2>
 				</div>
 
-				<div class="caption text align-center sfb" data-x="center" data-y="270" data-speed="400" data-start="1200" data-easing="easeOutExpo">
+				<div class="caption text align-center sfb" data-x="center" data-y="270" data-speed="400" data-start="1200" data-easing="easeOutExpo" style="background:#343836cc; padding:5px">
 					<p>Sas Hospitality is most trusted job board, connecting the world's <br> brightest minds with resume database loaded with talents.</p>
 				</div>
 

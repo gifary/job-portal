@@ -6,12 +6,6 @@
 
 		<div class="sixteen columns">
 			<h2>{{ trans("contact.title") }}</h2>
-			<nav id="breadcrumbs">
-				<ul>
-					<li>{{ trans("common.here") }} ></li>
-					<li>{{ trans("contact.title") }}</li>
-				</ul>
-			</nav>
 		</div>
 
 	</div>

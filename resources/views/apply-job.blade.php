@@ -5,12 +5,6 @@
 
 		<div class="sixteen columns">
 			<h2>{{ trans("common.apply_job") }}</h2>
-			<nav id="breadcrumbs">
-				<ul>
-					<li>{{ trans("common.here") }} ></li>
-					<li>{{ trans("common.apply_job") }}</li>
-				</ul>
-			</nav>
 		</div>
 
 	</div>
