@@ -22,13 +22,6 @@
 	<!-- Recent Jobs -->
 	<div class="eleven columns">
 	<div class="padding-right">
-		
-		{{-- <form action="#" method="get" class="list-search">
-			<button><i class="fa fa-search"></i></button>
-			<input type="text" placeholder="job title, keywords or company name" value=""/>
-			<div class="clearfix"></div>
-		</form> --}}
-
 		<ul class="job-list full">
             @if($loker!=null)
                 @foreach($loker as $lok)
@@ -36,15 +29,6 @@
                         <img src="{{Config::get('server.image_url')}}{{ $lok->lokasi->logo }}" alt="logo">
                         <div class="job-list-content">
                             <h4>{{ $lok->jabatan->nama }} 
-                            {{-- @if($lok->status_pekerjaan->nama=="Casual")
-                                <span class="full-time">{{ $lok->status_pekerjaan->nama }}</span></h4>
-                            @elseif($lok->status_pekerjaan->nama=="Kontrak")
-                                <span class="part-time">{{ $lok->status_pekerjaan->nama }}</span></h4>
-                            @elseif($lok->status_pekerjaan->nama=="Daily Worker")
-                                <span class="temporary">{{ $lok->status_pekerjaan->nama }}</span></h4>
-                            @else
-                                <span class="internship">{{ $lok->status_pekerjaan->nama }}</span></h4>
-                            @endif --}}
                             </h4>
                             <div class="job-icons">
                                 <span><i class="fa fa-calendar"></i> {{$lok->tgl_akhir}}</span>
