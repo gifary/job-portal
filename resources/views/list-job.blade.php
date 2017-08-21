@@ -7,8 +7,7 @@
 			<h2>Browse Jobs</h2>
 			<nav id="breadcrumbs">
 				<ul>
-					<li>{{trans('common.here')}}</li>
-					<li><a href="{{route('home')}}">Home</a></li>
+					<li>{{ trans("common.here") }} ></li>
 					<li>Browse Jobs</li>
 				</ul>
 			</nav>
@@ -57,7 +56,11 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 			    <h4>{{trans('common.position')}}</h4>
 				<select class="chosen-select-no-single ico-02" name="posisi">
-                    <option value="0">All Position</option>
+                    @if(Config::get('app.locale')=="en")
+						<option value="0">All Position</option>
+					@else
+						<option value="0">Semua Posisi</option>
+					@endif
                     @foreach($posisi as $p)
                         @if(isset($m_jabatan_id))
                             @if($m_jabatan_id==$p->jabatan->nama)

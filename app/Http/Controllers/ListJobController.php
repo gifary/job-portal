@@ -11,7 +11,6 @@ use App\Subscribe;
 use App;
 use Session;
 use Mail;
-
 /*
     author          : muhammad gifary (muhammadgifary@gmail.com)
     created date    : 29 maret 2017
@@ -48,7 +47,12 @@ class ListJobController extends Controller
 
         $res = json_decode($response);
         $lokasi = collect($res->data);
-        $lokasi->prepend("All Location",0);
+        if(Config::get('app.locale')=="en"){
+            $lokasi->prepend("All Location",0);
+        }else{
+            $lokasi->prepend("Pilih Lokasi",0);
+        }
+        
         $lokasi->all();
 
         $response = Curl::to($this->base_url."loker/available_postition")
@@ -93,7 +97,11 @@ class ListJobController extends Controller
 
         $res = json_decode($response);
         $lokasi = collect($res->data);
-        $lokasi->prepend("All Location",0);
+        if(Config::get('app.locale')=="en"){
+            $lokasi->prepend("All Location",0);
+        }else{
+            $lokasi->prepend("Pilih Lokasi",0);
+        }
         $lokasi->all();
 
         $response = Curl::to($this->base_url."loker/available_postition")
@@ -129,7 +137,11 @@ class ListJobController extends Controller
 
         $res = json_decode($response);
         $lokasi = collect($res->data);
-        $lokasi->prepend("All",0);
+        if(Config::get('app.locale')=="en"){
+            $lokasi->prepend("All",0);
+        }else{
+            $lokasi->prepend("Semua",0);
+        }
         $lokasi->all();
 
         $response = Curl::to($this->base_url."loker/available_postition")
@@ -193,7 +205,11 @@ class ListJobController extends Controller
 
         $res = json_decode($response);
         $agama = collect($res->data);
-        $agama->prepend("Pilih Agama",'');
+        if(Config::get('app.locale')=="en"){
+            $agama->prepend("Choose",'');
+        }else{
+            $agama->prepend("Pilih",'');
+        }
         $agama->all();
 
         $response = Curl::to($this->base_url."status")
@@ -203,7 +219,11 @@ class ListJobController extends Controller
 
         $res = json_decode($response);
         $status = collect($res->data);
-        $status->prepend("Pilih Status",'');
+        if(Config::get('app.locale')=="en"){
+            $status->prepend("Choose",'');
+        }else{
+            $status->prepend("Pilih",'');
+        }
         $status->all();
 
         $response = Curl::to($this->base_url."jenis_kelamin")
@@ -213,7 +233,11 @@ class ListJobController extends Controller
 
         $res = json_decode($response);
         $jk = collect($res->data);
-        $jk->prepend("Pilih Jenis Kelamin",'');
+        if(Config::get('app.locale')=="en"){
+            $jk->prepend("Choose",'');
+        }else{
+            $jk->prepend("Pilih",'');
+        }
         $jk->all();
 
         $response = Curl::to($this->base_url."pendidikan")
@@ -223,7 +247,11 @@ class ListJobController extends Controller
 
         $res = json_decode($response);
         $pendidikan = collect($res->data);
-        $pendidikan->prepend("Pilih Pendidikan",'');
+        if(Config::get('app.locale')=="en"){
+            $pendidikan->prepend("Choose",'');
+        }else{
+            $pendidikan->prepend("Pilih",'');
+        }
         $pendidikan->all();
 
         $response = Curl::to($this->base_url."lokasi/kota")
@@ -233,7 +261,11 @@ class ListJobController extends Controller
 
         $res = json_decode($response);
         $kota = collect($res->data);
-        $kota->prepend("Pilih Kota",'');
+        if(Config::get('app.locale')=="en"){
+            $kota->prepend("Choose",'');
+        }else{
+            $kota->prepend("Pilih",'');
+        }
         $kota->all();
 
         $masalah_kesehatan = array(
@@ -459,7 +491,7 @@ class ListJobController extends Controller
         $this->validate($request, [
             'name'              => 'required|string|max:50',
             'email'             => 'required|email',
-            'coment'            => 'required',
+            'comment'            => 'required',
             
         ],$messages);
 

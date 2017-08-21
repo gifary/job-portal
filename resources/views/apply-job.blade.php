@@ -7,8 +7,7 @@
 			<h2>{{ trans("common.apply_job") }}</h2>
 			<nav id="breadcrumbs">
 				<ul>
-					<li>{{ trans("contact.title") }}</li>
-					<li><a href="{{route('home')}}">Home</a></li>
+					<li>{{ trans("common.here") }} ></li>
 					<li>{{ trans("common.apply_job") }}</li>
 				</ul>
 			</nav>

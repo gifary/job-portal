@@ -8,8 +8,7 @@
 			<h2>{{ trans("contact.title") }}</h2>
 			<nav id="breadcrumbs">
 				<ul>
-					<li>{{ trans("common.here") }}</li>
-					<li><a href="{{route('home')}}">Home</a></li>
+					<li>{{ trans("common.here") }} ></li>
 					<li>{{ trans("contact.title") }}</li>
 				</ul>
 			</nav>
@@ -112,7 +111,6 @@
 		<ul class="social-icons">
 			<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
 			<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-			<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
 			<li><a class="linkedin" href="#"><i class="icon-linkedin"></i></a></li>
 		</ul>
 		<div class="clearfix"></div>

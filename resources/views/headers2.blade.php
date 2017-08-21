@@ -60,12 +60,19 @@
 				</li>
 			</ul>
 			<ul class="float-right">
-				<li><a href="#">Language</a>
-					<ul>
-						<li><a href="{{route('lang','id')}}"><i class="fa fa-flag"></i> Indonesia</a></li>
-						<li><a href="{{route('lang','en')}}"><i class="fa fa-flag"></i> English</a></li>
-					</ul>
-				</li>
+				@if(Config::get('app.locale')=="en")
+					<li><a href="#">English</a>
+						<ul>
+							<li><a href="{{route('lang','id')}}"><i class="fa fa-flag"></i> Indonesia</a></li>
+						</ul>
+					</li>
+				@else
+					<li><a href="#">Indonesia</a>
+						<ul>
+							<li><a href="{{route('lang','en')}}"><i class="fa fa-flag"></i> English</a></li>
+						</ul>
+					</li>
+				@endif
 			</ul>
 		</nav>
 

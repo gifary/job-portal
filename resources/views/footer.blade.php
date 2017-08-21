@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="six columns">
-			<h4>Vission</h4>
+			<h4>Vision</h4>
 			<p>
 				To become Hospitality company which bringing goodness
 			</p>
@@ -60,7 +60,6 @@
 				<ul class="social-icons">
 					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
 					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-					<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
 					<li><a class="linkedin" href="#"><i class="icon-linkedin"></i></a></li>
 				</ul>
 				<div class="copyrights">©  Copyright 2017 by <a href="#">Sas Hospitality</a>. All Rights Reserved.</div>
