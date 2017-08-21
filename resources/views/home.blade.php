@@ -100,15 +100,6 @@
 						<img src="{{Config::get('server.image_url')}}{{ $lok->lokasi->logo }}" alt="logo">
 						<div class="job-list-content">
 							<h4>{{ $lok->jabatan->nama }} 
-							{{-- @if($lok->status_pekerjaan->nama=="Casual")
-								<span class="full-time">{{ $lok->status_pekerjaan->nama }}</span>
-							@elseif($lok->status_pekerjaan->nama=="Kontrak")
-								<span class="part-time">{{ $lok->status_pekerjaan->nama }}</span>
-							@elseif($lok->status_pekerjaan->nama=="Daily Worker")
-								<span class="temporary">{{ $lok->status_pekerjaan->nama }}</span>
-							@else
-								<span class="internship">{{ $lok->status_pekerjaan->nama }}</span>
-							@endif --}}
 							</h4>
 							<div class="job-icons">
 								<span><i class="fa fa-calendar"></i> {{$lok->tgl_akhir}}</span>
@@ -141,13 +132,13 @@
                     <option value="0">All Position</option>
                     @foreach($posisi as $p)
                         @if(isset($m_jabatan_id))
-                            @if($m_jabatan_id==$p->jabatan->m_jabatan_id)
-                                <option value="{{$p->jabatan->m_jabatan_id}}" selected>{{$p->jabatan->nama}}</option>
+                            @if($m_jabatan_id==$p->jabatan->nama)
+                                <option value="{{$p->jabatan->nama}}" selected>{{$p->jabatan->nama}}</option>
                             @else
-                                <option value="{{$p->jabatan->m_jabatan_id}}">{{$p->jabatan->nama}}</option>
+                                <option value="{{$p->jabatan->nama}}">{{$p->jabatan->nama}}</option>
                             @endif
                         @else
-                            <option value="{{$p->jabatan->m_jabatan_id}}">{{$p->jabatan->nama}}</option>
+                            <option value="{{$p->jabatan->nama}}">{{$p->jabatan->nama}}</option>
                         @endif
                     @endforeach
                 </select>
@@ -177,15 +168,6 @@
 								<li>
 									<div class="job-spotlight">
 										<a href="#"><h4>{{ $lok->jabatan->nama }}  
-										{{-- @if($lok->status_pekerjaan->nama=="Casual")
-											<span class="full-time">{{ $lok->status_pekerjaan->nama }}</span>
-										@elseif($lok->status_pekerjaan->nama=="Kontrak")
-											<span class="part-time">{{ $lok->status_pekerjaan->nama }}</span>
-										@elseif($lok->status_pekerjaan->nama=="Daily Worker")
-											<span class="temporary">{{ $lok->status_pekerjaan->nama }}</span>
-										@else
-											<span class="internship">{{ $lok->status_pekerjaan->nama }}</span>
-										@endif --}}
 										</h4></a>
 										<span><i class="fa fa-calendar"></i> {{$lok->tgl_akhir}}</span>
 										<span><i class="fa fa-map-marker"></i> {{ $lok->lokasi->nama}}</span>
