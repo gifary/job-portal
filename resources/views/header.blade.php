@@ -64,6 +64,7 @@
 				</li>
 				<li> <a href="{{ route('faq') }}">FAQ</a>
 				</li>
+				<li><a href="{{ route('fraud') }}">Fraud Information</a></li>
 			</ul>
 			<ul class="float-right">
 				@if(Config::get('app.locale')=="en")
