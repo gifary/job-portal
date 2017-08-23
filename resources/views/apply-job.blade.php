@@ -1,12 +1,8 @@
 @include('header_apply')
 
-<div id="titlebar" class="single">
+<div id="titlebar" style="background-image: url('../../images/banner-home-02.jpg');height: 250px;" class="single">
 	<div class="container">
-
-		<div class="sixteen columns">
-			<h2>{{ trans("common.apply_job") }}</h2>
-		</div>
-
+		
 	</div>
 </div>
 <div class="container" >
@@ -93,6 +89,22 @@
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group {!! $errors->has('sumber') ? 'has-error' : '' !!}">
+              {!! Form::label('sumber', trans("apply.sumber")) !!}
+              {!! Form::select('sumber',$sumber_loker, isset($model) ? $model->m_jenis_kelamin: null , ['class'=>'form-control']) !!}
+              {!! $errors->first('sumber', '<p class="help-block">:message</p>') !!}
+            </div>    
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12" id="lainnya">
+            <div class="form-group {!! $errors->has('other') ? 'has-error' : '' !!}">
+              {!! Form::label('other', trans("apply.lainnya")) !!}
+              {!! Form::text('other',  null , ['class'=>'form-control']) !!}
+              {!! $errors->first('other', '<p class="help-block">:message</p>') !!}
+            </div>    
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group {!! $errors->has('alamat_ktp') ? 'has-error' : '' !!}">
               {!! Form::label('alamat_ktp', trans("apply.alamat")) !!}
               {!! Form::textarea('alamat_ktp', isset($model) ? $model->alamat_ktp: null , ['class'=>'form-control','style'=>'height:150px;']) !!}
@@ -116,11 +128,23 @@
 </div>
 @include('footer')
 <script>
+    if($("#sumber").val()==='0'){
+        $("#lainnya").show();
+    }else{
+        $("#lainnya").hide();
+    }
+    $("#sumber").on("change",function(){
+        if(this.value=='0'){
+            $("#lainnya").show();
+        }else{
+            $("#lainnya").hide();
+        }
+    });
     $( "#apply" ).click(function() {
         var form = $('#form-recrutiment');
         swal({
           title: '{{ trans("apply.persetujuan") }}',
-          text: '{{ trans("apply.aggrement") }}',
+          text: '{!! trans("apply.aggrement") !!}',
           type: "warning",
           showCancelButton: true,
           confirmButtonColor: "#16465E",

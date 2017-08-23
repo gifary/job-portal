@@ -19,4 +19,6 @@ return [
     'aggrement'  => 'By submit data I aggree for privacy policy',
     'batal' => "Cancel",
     'setuju' => "Yes, I am sure",
+    'sumber' => "Job Vacancy Resources",
+    'lainnya' => "Other",
 ];

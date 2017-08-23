@@ -69,7 +69,7 @@
 				</div>
 
 				<div class="caption text align-center sfb" data-x="center" data-y="270" data-speed="400" data-start="1200" data-easing="easeOutExpo" style="background:#343836cc; padding:5px">
-					<p>Sas Hospitality is most trusted job board, connecting the world's <br> brightest minds with resume database loaded with talents.</p>
+					<p>SAS Hospitality is most trusted job board, connecting the world's <br> brightest minds with resume database loaded with talents.</p>
 				</div>
 
 				{{-- <div class="caption sfb" data-x="center" data-y="400" data-speed="400" data-start="1600" data-easing="easeOutExpo">
@@ -196,34 +196,17 @@
 <!-- Counters -->
 <div id="counters">
 	<div class="container">
-		<div class="four columns">
-			<div class="counter-box">
-				<span class="counter">15</span><i>k</i>
-				<p>Job Offers</p>
-			</div>
+		<div style="text-align:center;">
+			<h2 style="color:white;margin-top: -50px;margin-bottom: 30px;">Job Offers</h2>
 		</div>
-
-		<div class="four columns">
-			<div class="counter-box">
-				<span class="counter">4982</span>
-				<p>Members</p>
+		@foreach($total_loker as $total)
+			<div class="three columns">
+				<div class="counter-box">
+					<span class="counter">{{ $total->total }}</span>
+					<p>{{ $total->nama }}</p>
+				</div>
 			</div>
-		</div>
-
-		<div class="four columns">
-			<div class="counter-box">
-				<span class="counter">768</span>
-				<p>Resumes Posted</p>
-			</div>
-		</div>
-
-		<div class="four columns">
-			<div class="counter-box">
-				<span class="counter">90</span><i>%</i>
-				<p>Clients Who Rehire</p>
-			</div>
-		</div>
-
+		@endforeach
 	</div>
 </div>
 

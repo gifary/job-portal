@@ -33,23 +33,12 @@
 			<h4>Company</h4>
 			<ul class="footer-links">
 				<li><a href="#">About Us</a></li>
-				{{-- <li><a href="#">Careers</a></li>
-				<li><a href="#">Our Blog</a></li> --}}
+				<li><a href="{{ route('fraud') }}">Fraud</a></li>
 				<li><a href="#">Terms of Service</a></li>
-				<li><a href="#">Privacy Policy</a></li>
+				<li><a href="{{ route('privacy_policy') }}">Privacy Policy</a></li>
 			</ul>
 		</div>
-		
-		{{-- <div class="three columns">
-			<h4>Press</h4>
-			<ul class="footer-links">
-				<li><a href="#">In the News</a></li>
-				<li><a href="#">Press Releases</a></li>
-				<li><a href="#">Awards</a></li>
-				<li><a href="#">Testimonials</a></li>
-				<li><a href="#">Timeline</a></li>
-			</ul>
-		</div>	 --}}
+
 	</div>
 
 	<!-- Bottom -->
@@ -62,7 +51,7 @@
 					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
 					<li><a class="linkedin" href="#"><i class="icon-linkedin"></i></a></li>
 				</ul>
-				<div class="copyrights">©  Copyright 2017 by <a href="#">Sas Hospitality</a>. All Rights Reserved.</div>
+				<div class="copyrights">©  Copyright 2017 by <a href="#">SAS Hospitality</a>. All Rights Reserved.</div>
 			</div>
 		</div>
 	</div>

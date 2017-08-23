@@ -13,7 +13,8 @@ return [
     'recent_job' => "Job Terbaru",
     'more_job' => "Job Lainnya",
     'search' => "Cari",
-    'job_spotlight' => "Job Spotligth",
+    'job_spotlight' => "Job Spotlight",
     'language' => "Bahasa",
     'contact' => "Kontak",
+    'about' => "Tentang",
 ];

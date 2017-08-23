@@ -2288,7 +2288,7 @@ screen and (max-height: 300px) {
 
 .counter-box {
     display: block;
-    padding: 0;
+    padding: 15px;
     text-align: center;
     border-right: 1px solid #ddd;
 }
@@ -2298,7 +2298,7 @@ screen and (max-height: 300px) {
     position: absolute;
     height: 100%;
     display: inline-block;
-    background-color: #282828;
+    /*background-color: #282828;*/
     content: "";
     right: 10px;
 }
@@ -4681,7 +4681,7 @@ li .job-spotlight p {
 .job-overview ul li div {
     position: relative;
     top: -18px;
-    margin-left: 25px;
+    /*margin-left: 25px;*/
 }
 
 .job-overview a.button {

@@ -23,3 +23,6 @@ Route::get('/tes', 'ListJobController@download')->name('tes');
 Route::post('/subscribe','ListJobController@subscribe')->name('subscribe');
 Route::get('/contact','ListJobController@contact')->name('contact');
 Route::post('/contact','ListJobController@postContact')->name('contact');
+Route::get('privacy_policy', 'PrivacyController')->name('privacy_policy');
+Route::get('faq', 'FaqController')->name('faq');
+Route::get('fraud', 'FraudController')->name('fraud');

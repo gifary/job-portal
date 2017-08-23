@@ -62,6 +62,8 @@
 				</li>
 				<li> <a href="{{ route('contact') }}">Contact</a>
 				</li>
+				<li> <a href="{{ route('faq') }}">FAQ</a>
+				</li>
 			</ul>
 			<ul class="float-right">
 				@if(Config::get('app.locale')=="en")

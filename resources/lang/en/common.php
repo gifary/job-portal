@@ -16,4 +16,5 @@ return [
     'job_spotlight' => "Job Spotligth",
     'language' => "Language",
     'contact' => "Contact",
+    'about' => "About",
 ];

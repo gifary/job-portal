@@ -84,8 +84,17 @@ class ListJobController extends Controller
 
         $res = json_decode($response);
         $spotlight = $res->data->data;
+
+        $response = Curl::to($this->base_url."loker/total_loker")
+        ->withHeader('Authorization: Bearer '.$this->access_token)
+        ->withHeader('Accept: application/json')
+        ->enableDebug(storage_path('logs/clientlog.txt'))
+        ->get();
+
+        $res = json_decode($response);
+        $total_loker = $res->data;
         
-        return view('home',compact("lokasi","posisi","loker","spotlight"));
+        return view('home',compact("lokasi","posisi","loker","spotlight","total_loker"));
     }
 
     public function listjob(Request $request){
@@ -272,7 +281,26 @@ class ListJobController extends Controller
             "0" =>"Tidak",
             "1" => "Ya"
         );
-        return view('apply-job',compact("agama","status","jk","pendidikan","masalah_kesehatan","kota","id","m_lokasi_id"));
+        if(Config::get('app.locale')=="en"){
+            $sumber_loker = array(
+                "Instagram" => "Instagram",
+                "Twitter"   => "Twitter",
+                "Facebook"  => "Facebook",
+                "LinkedIn"  => "LinkedIn",
+                'Karyawan'  => "Employee",
+                "0"     => "Other"
+            );
+        }else{
+            $sumber_loker = array(
+                "Instagram" => "Instagram",
+                "Twitter"   => "Twitter",
+                "Facebook"  => "Facebook",
+                "LinkedIn"  => "LinkedIn",
+                'Karyawan'  => "Karyawan",
+                "0"     => "Lainnya"
+            );
+        }
+        return view('apply-job',compact("agama","status","jk","pendidikan","masalah_kesehatan","kota","id","m_lokasi_id","sumber_loker"));
     }
 
     public function post_job_old(Request $request,$m_jabatan_id,$m_lokasi_id){
@@ -412,8 +440,18 @@ class ListJobController extends Controller
             'alamat_ktp'        => 'required',
             'm_jenis_kelamin'   => 'required|numeric',
             'salary'            => 'required',
-            'cv'                => 'required|mimes:pdf|max:22000'
+            'cv'                => 'required|mimes:pdf|max:22000',
+            'sumber'            => 'required'
         ],$messages);
+
+        if($request->get("sumber")=="0"){
+            $this->validate($request, [
+                'other'            => 'required|string|max:64'
+            ],$messages);
+            $sumber = $request->get("other");
+        }else{
+            $sumber = $request->get("sumber");
+        }
        
         $path = $request->file('cv')->store('cv');
         $nama_file = explode("/",$path);
@@ -423,6 +461,7 @@ class ListJobController extends Controller
 
        
         $sent_data['cv'] = $file_cv;
+        $sent_data['sumber'] = $sumber;
         $sent_data['m_jabatan_id'] = $m_jabatan_id;
         $sent_data['m_lokasi_id'] = $m_lokasi_id;
         $sent_data['salary'] = str_replace(",","",$request->get("salary"));

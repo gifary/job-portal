@@ -19,4 +19,6 @@ return [
     'aggrement'  => 'Dengan ini saya menyetejui ketentuan privasi yang berlaku',
     'batal' => "Batal",
     'setuju' => "Ya, Saya setuju",
+    'sumber' => "Sumber Info Lowongan",
+    'lainnya' => "Lainnya",
 ];
