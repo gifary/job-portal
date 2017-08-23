@@ -33,7 +33,8 @@
 			<h4>Company</h4>
 			<ul class="footer-links">
 				<li><a href="#">About Us</a></li>
-				<li><a href="{{ route('fraud') }}">Fraud</a></li>
+				<li><a href="{{ route('fraud') }}">Fraud Information</a></li>
+				<li><a href="{{ route('faq') }}">FAQ</a></li>
 				<li><a href="#">Terms of Service</a></li>
 				<li><a href="{{ route('privacy_policy') }}">Privacy Policy</a></li>
 			</ul>
