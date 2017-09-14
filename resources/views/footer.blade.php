@@ -5,29 +5,28 @@
 <div id="footer">
 	<!-- Main -->
 	<div class="container">
-
 		<div class="six columns">
+			<h4>Vision</h4>
+			<p style="text-align: justify;">To be the best hospitality company in Indonesia which bring goodness to customers, society, and nation to become valuable asset in tourism industry</p>
+		</div>
+		<div class="ten columns">
+			<h4>MISION</h4>
+			<ol style="list-style-type:disc">
+                <li style="text-align: justify;"> To develop  blessing  service business concept that friendly,  comfortable and  prioritising  service quality excellence to the customers</li>
+                <li style="text-align: justify;">To provide high quality of improvement in tourism business which combine management with the local wisdom of Indonesian culture</li>
+                <li style="text-align: justify;">To treat the employee as capital that have to be nurtured and  developed through sustainable training and development program </li>
+            </ol>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="thirteen columns">
 			<h4>About</h4>
 			<p>
 				SAS HOSPITALITY is a partner for Hotel Owner / Investor in order to Lease, manage and operate their Hotel with spiritually passion.<br>
 				The Brand it self will showing and demonstrating of Trust, Honesty and sincerity in every area of service and Product
 			</p>
 		</div>
-
-		<div class="six columns">
-			<h4>Vision</h4>
-			<p>
-				To become Hospitality company which bringing goodness
-			</p>
-			<h4>MISION</h4>
-			<ul style="list-style-type:disc">
-				<li>To Think and act with hearth</li>
-				<li>To Work with spiritually mental attitude</li>
-				<li>To Keep owner/Investor trustworthiness </li>
-			</ul>
-		</div>
-
-		
 
 		<div class="three columns">
 			<h4>Company</h4>
@@ -41,7 +40,6 @@
 		</div>
 
 	</div>
-
 	<!-- Bottom -->
 	<div class="container">
 		<div class="footer-bottom">
