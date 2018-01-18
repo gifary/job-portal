@@ -33,7 +33,7 @@
                     </li>
                 @endforeach
             @else
-            <h4 style="text-align:center">{{ route('common.not_found') }}</h4>
+            <h4 style="text-align:center">{{ trans('common.not_found') }}</h4>
             @endif
 		</ul>
 		<div class="clearfix"></div>
