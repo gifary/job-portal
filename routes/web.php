@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', 'ListJobController@index')->name('home');
 Route::get('/lang/{locale?}', 'ListJobController@lang')->name('lang');
 Route::post('/search', 'ListJobController@search')->name('search');
