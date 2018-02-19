@@ -11,7 +11,7 @@ return [
     'pendidikan' => 'Pendidikan Terakhir',
     'posisi' => 'Posisi Terakhir',
     'jenis_kelamin' => 'Jenis Kelamin',
-    'gajih' => 'Ekspektasi Gajih',
+    'gajih' => 'Ekspektasi Gaji',
     'alamat' => 'Alamat',
     'cv' => 'CV dalam format PDF Max (2Mb)',
     'button_apply' => 'LAMAR',
