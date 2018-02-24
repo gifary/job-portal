@@ -37,7 +37,7 @@
 
 		<!-- Logo -->
 		<div id="logo">
-			<h1><a href="{{ route('home') }}"><img src="{{ asset('images/logo_sas_hospitality.jpg') }}" alt="Job" /></a></h1>
+			<h1><a href="{{ route('home') }}"><img style="width:150px;" src="{{ asset('images/logo_sas_hospitality.jpg') }}" alt="Job" /></a></h1>
 		</div>
 
 		<!-- Menu -->
