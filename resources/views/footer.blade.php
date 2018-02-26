@@ -7,25 +7,27 @@
 	<div class="container">
 		<div class="six columns">
 			<h4>Vision</h4>
-			<p style="text-align: justify;">To be the best hospitality company in Indonesia which bring goodness to customers, society, and nation to become valuable asset in tourism industry</p>
+			<p style="text-align: justify;">Menjadi perusahaan bidang jasa yang terbaik di Indonesia yang mendatangkan kebaikan bagi pengunjung, masyarakat, dan negara sehingga  menjadi aset berharga di dunia pariwisata.</p>
 		</div>
 		<div class="ten columns">
 			<h4>MISION</h4>
 			<ol style="list-style-type:disc">
-                <li style="text-align: justify;"> To develop  blessing  service business concept that friendly,  comfortable and  prioritising  service quality excellence to the customers</li>
-                <li style="text-align: justify;">To provide high quality of improvement in tourism business which combine management with the local wisdom of Indonesian culture</li>
-                <li style="text-align: justify;">To treat the employee as capital that have to be nurtured and  developed through sustainable training and development program </li>
+                <li style="text-align: justify;"> Mengembangkan konsep bisnis jasa yang berkah, ramah, nyaman, dan mengutamakan pelayanan terbaik terhadap pelanggan.</li>
+                <li style="text-align: justify;">Memberikan kualitas tinggi pada pengembangan lini bisnis pariwisata yang dikelola serta mengkombinasikannya dengan keunikan kearifan lokal budaya Indonesia.</li>
+                <li style="text-align: justify;">Memperakukan pegawai sebagai modal yang harus dijaga dan dikembangkan melalui program pelatihan dan pengembangan yang berkelanjutan. </li>
             </ol>
 		</div>
 	</div>
 
 	<div class="container">
 		<div class="thirteen columns">
-			<h4>About</h4>
-			<p>
-				SAS HOSPITALITY is a partner for Hotel Owner / Investor in order to Lease, manage and operate their Hotel with spiritually passion.<br>
-				The Brand it self will showing and demonstrating of Trust, Honesty and sincerity in every area of service and Product
-			</p>
+			<h4>Core Value</h4>
+			<ol style="list-style-type:disc">
+                <li style="text-align: justify;"> Sincerity</li>
+                <li style="text-align: justify;"> Ownership</li>
+                <li style="text-align: justify;"> Uniqueness</li>
+                <li style="text-align: justify;"> Learning</li>
+            </ol>
 		</div>
 
 		<div class="three columns">
@@ -70,7 +72,7 @@
 ================================================== -->
 <script src="{{ asset('scripts/jquery-2.1.3.min.js') }}"></script>
 <script src="{{ asset('/js/jquery.priceformat.min.js')}}"></script>
-<script src="{{ asset('scripts/custom.js') }}"></script>
+<script src="{{ asset('scripts/custom.js?v=2') }}"></script>
 <script src="{{ asset('scripts/jquery.superfish.js') }}"></script>
 <script src="{{ asset('scripts/jquery.themepunch.tools.min.js') }}"></script>
 <script src="{{ asset('scripts/jquery.themepunch.revolution.min.js') }}"></script>
