@@ -56,13 +56,30 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="col-lg-3 col-md-3 col-sm-12">
             <div class="form-group {!! $errors->has('pendidikan_terakhir') ? 'has-error' : '' !!}">
               {!! Form::label('pendidikan_terakhir', trans("apply.pendidikan")) !!}
               {!! Form::select('pendidikan_terakhir', $pendidikan, isset($model) ? $model->pendidkan->m_pendidikan_id: null , ['class'=>'form-control']) !!}
               {!! $errors->first('pendidikan_terakhir', '<p class="help-block">:message</p>') !!}
             </div>    
         </div>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="form-group {!! $errors->has('nilai_sekolah') ? 'has-error' : '' !!}">
+              {!! Form::label('nilai_sekolah', trans("apply.nilai_sekolah")) !!}
+              {!! Form::text('nilai_sekolah', isset($model) ? $model->pendidkan->nilai_sekolah: null , ['class'=>'form-control']) !!}
+              {!! $errors->first('nilai_sekolah', '<p class="help-block">:message</p>') !!}
+            </div>    
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group {!! $errors->has('nama_sekolah') ? 'has-error' : '' !!}">
+              {!! Form::label('nama_sekolah', trans("apply.nama_sekolah")) !!}
+              {!! Form::text('nama_sekolah', isset($model) ? $model->pendidkan->nama_sekolah: null , ['class'=>'form-control']) !!}
+              {!! $errors->first('nama_sekolah', '<p class="help-block">:message</p>') !!}
+            </div>    
+        </div>
+        
+      </div>
+      <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group {!! $errors->has('posisi_terakhir') ? 'has-error' : '' !!}">
               {!! Form::label('posisi_terakhir', trans("apply.posisi")) !!}
@@ -70,8 +87,6 @@
               {!! $errors->first('posisi_terakhir', '<p class="help-block">:message</p>') !!}
             </div>    
         </div>
-      </div>
-      <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group {!! $errors->has('m_jenis_kelamin') ? 'has-error' : '' !!}">
               {!! Form::label('m_jenis_kelamin', trans("apply.jenis_kelamin")) !!}
@@ -79,6 +94,9 @@
               {!! $errors->first('m_jenis_kelamin', '<p class="help-block">:message</p>') !!}
             </div>    
         </div>
+        
+      </div>
+      <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group {!! $errors->has('salary') ? 'has-error' : '' !!}">
               {!! Form::label('salary', trans("apply.gajih")) !!}
@@ -86,8 +104,6 @@
               {!! $errors->first('salary', '<p class="help-block">:message</p>') !!}
             </div>    
         </div>
-      </div>
-      <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group {!! $errors->has('sumber') ? 'has-error' : '' !!}">
               {!! Form::label('sumber', trans("apply.sumber")) !!}

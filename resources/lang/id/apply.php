@@ -21,4 +21,6 @@ return [
     'setuju' => "Ya, Saya setuju",
     'sumber' => "Sumber Info Lowongan",
     'lainnya' => "Lainnya",
+    'nama_sekolah' => "Nama Sekolah",
+    'nilai_sekolah' => "IPK/Nilai SKHUN",
 ];

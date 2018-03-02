@@ -441,7 +441,9 @@ class ListJobController extends Controller
             'm_jenis_kelamin'   => 'required|numeric',
             'salary'            => 'required',
             'cv'                => 'required|mimes:pdf|max:22000',
-            'sumber'            => 'required'
+            'sumber'            => 'required',
+            'nilai_sekolah'            => 'required',
+            'nama_sekolah'            => 'required'
         ],$messages);
 
         if($request->get("sumber")=="0"){
@@ -457,7 +459,7 @@ class ListJobController extends Controller
         $nama_file = explode("/",$path);
         $file_cv = $this->getCurlValue(storage_path('app/'.$path),false,$nama_file[1]);
 
-        $sent_data = $request->only(['email','nama','no_ktp','m_kota_id','m_kota_id_asal','tgl_lahir','no_hp','pendidikan_terakhir','posisi_terakhir','alamat_ktp','m_jenis_kelamin']);
+        $sent_data = $request->only(['email','nama','no_ktp','m_kota_id','m_kota_id_asal','tgl_lahir','no_hp','pendidikan_terakhir','posisi_terakhir','alamat_ktp','m_jenis_kelamin','nilai_sekolah','nama_sekolah']);
 
        
         $sent_data['cv'] = $file_cv;
