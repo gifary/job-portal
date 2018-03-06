@@ -100,12 +100,12 @@
     var geocoder;
     var map;
    	var address = "{{$loker->lokasi->nama}}";
-   	if(address=="SAS Hospitality"){
+   	if(address=="SAS Hospitality" || address=="Grand Tjokro Premiere"){
    		address="Grand Tjokro Bandung";
    	}
 	function initMap() {
 		geocoder = new google.maps.Geocoder();
-		var latlng = new google.maps.LatLng(-34.397, 150.644);
+		var latlng = new google.maps.LatLng(-6.886271, 107.603887);
 		var myOptions = {
 			zoom: 15,
 			center: latlng,
