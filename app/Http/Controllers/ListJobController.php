@@ -122,18 +122,24 @@ class ListJobController extends Controller
         $res = json_decode($response);
         $posisi = $res->data;
 
+        $page = $request->page;
+        if(empty($page)){
+            $page=1;
+        }
 
         $response = Curl::to($this->base_url."loker")
         ->withHeader('Authorization: Bearer '.$this->access_token)
         ->withHeader('Accept: application/json')
-        ->withData(array("start"=>0,"limit"=>10))
+        ->withData(array("start"=>0,"limit"=>10,"page"=>$page))
         ->enableDebug(storage_path('logs/clientlog.txt'))
         ->get();
 
-        $res = json_decode($response);
-        $loker = $res->data->data;
-
-        return view('list-job',compact("lokasi","posisi","loker"));
+        $loker = json_decode($response);
+        // dd($loker);
+        // $loker = $res->data->data;
+        $total = $loker->data->total;
+        
+        return view('list-job',compact("lokasi","posisi","loker","page"));
     }
 
     public function search(Request $request)
@@ -176,7 +182,7 @@ class ListJobController extends Controller
         $res = json_decode($response);
         $loker = null;
         if($res->data!=null){
-            $loker = $res->data->data;
+            $loker = $res->data;
         }
        
         return view('list-job',compact("lokasi","posisi","loker","m_lokasi_id","m_jabatan_id"));
