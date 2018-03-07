@@ -4,7 +4,7 @@
 <div id="titlebar" style="background-image: url('../images/banner-home-02.jpg');height: 150px;">
 	<div class="container">
 		<div class="ten columns">
-			<img src="{{url('images/sas-academy-logo.png')}}" alt="logo" style="height: 75px;margin-bottom: 10px;">
+			<img src="{{url('images/sas-academy-logo.png')}}" alt="logo" style="height: 100px;margin-bottom: 10px;">
 			{{-- <span><a href="browse-jobs.html"><div style="background:#343836cc; padding:5px; color:white;">{{ $loker->departemen->nama }}</div></a></span> --}}
 			<div class="content" style="background:#343836cc; padding:5px; color:white;">
 				<h2 style="color:white;">SAS Hotel Academy</h2>
@@ -24,7 +24,7 @@
 			<h1><b>SAS Hotel Academy</b></h1>
 			<img src="{{url('images/banner-sas-academy1.png')}}">
 			<p  style="font-weight: bold; text-align: justify;">
-				<b>Anda ingin dapat bekerja di dunia perhotelan? </b>
+				<h3><b>Anda ingin dapat bekerja di dunia perhotelan? </b></h3>
 			</p>
 	  		<p  style="font-weight: bold; text-align: justify;">
 				<b>Mari bergabung bersama kami di SAS Hotel Academy! Hanya bermodalkan kemauan belajar, komitmen, dan integritas. Teman-teman tidak perlu mengeluarkan sepeserpun. GRATIS!! </b>
