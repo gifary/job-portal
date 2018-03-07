@@ -7,7 +7,7 @@
 			<img src="{{url('images/sas-academy-logo.png')}}" alt="logo" style="height: 75px;margin-bottom: 10px;">
 			{{-- <span><a href="browse-jobs.html"><div style="background:#343836cc; padding:5px; color:white;">{{ $loker->departemen->nama }}</div></a></span> --}}
 			<div class="content" style="background:#343836cc; padding:5px; color:white;">
-				<h2 style="color:white;">SAS Academy</h2>
+				<h2 style="color:white;">SAS Hotel Academy</h2>
 			</div>
 		</div>
 	</div>
