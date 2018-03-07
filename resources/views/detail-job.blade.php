@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="ten columns">
 			<img src="{{Config::get('server.image_url')}}{{ $loker->lokasi->logo }}" alt="logo" style="height: 75px;margin-bottom: 10px;">
-			<span><a href="browse-jobs.html"><div style="background:#343836cc; padding:5px; color:white;">{{ $loker->departemen->nama }}</div></a></span>
+			<span><a href="#"><div style="background:#343836cc; padding:5px; color:white;">{{ $loker->departemen->nama }}</div></a></span>
 			<div class="content" style="background:#343836cc; padding:5px; color:white;">
 				<h2 style="color:white;">{{ $loker->jabatan->nama }}</h2>
 			</div>

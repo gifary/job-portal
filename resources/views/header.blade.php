@@ -60,6 +60,7 @@
 						<li><a href="job-alerts.html">Job Alerts</a></li> --}}
 					</ul>
 				</li>
+				<li> <a href="{{ route('academy') }}">SAS Academy</a>
 				<li> <a href="{{ route('contact') }}">Contact</a>
 				</li>
 				<li> <a href="{{ route('faq') }}">FAQ</a>

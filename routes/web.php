@@ -27,3 +27,6 @@ Route::post('/contact','ListJobController@postContact')->name('contact');
 Route::get('privacy_policy', 'PrivacyController')->name('privacy_policy');
 Route::get('faq', 'FaqController')->name('faq');
 Route::get('fraud', 'FraudController')->name('fraud');
+Route::get('academy', 'AcademyController@index')->name('academy');
+Route::post('academy', 'AcademyController@store')->name('academy');
+Route::get('apply-academy', 'AcademyController@apply')->name('apply-academy');
