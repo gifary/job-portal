@@ -44,6 +44,20 @@ class AcademyController extends Controller
         }
         $agama->all();
 
+        $response = Curl::to($this->base_url."departement")
+        ->withHeader('Authorization: Bearer '.$this->access_token)
+        ->withHeader('Accept: application/json')
+        ->get();
+
+        $res = json_decode($response);
+        $departemen = collect($res->data);
+        if(Config::get('app.locale')=="en"){
+            $departemen->prepend("Choose",'');
+        }else{
+            $departemen->prepend("Pilih",'');
+        }
+        $departemen->all();
+
         $response = Curl::to($this->base_url."status")
         ->withHeader('Authorization: Bearer '.$this->access_token)
         ->withHeader('Accept: application/json')
@@ -123,7 +137,7 @@ class AcademyController extends Controller
                 "0"     => "Lainnya"
             );
         }
-        return view('apply-academy',compact("agama","status","jk","pendidikan","masalah_kesehatan","kota","sumber_loker"));
+        return view('apply-academy',compact("agama","status","jk","pendidikan","masalah_kesehatan","kota","sumber_loker","departemen"));
     }
 
     public function store(Request $request){
@@ -144,7 +158,8 @@ class AcademyController extends Controller
             'cv'                => 'required|mimes:pdf|max:22000',
             'sumber'            => 'required',
             'nilai_sekolah'            => 'required',
-            'nama_sekolah'            => 'required'
+            'nama_sekolah'            => 'required',
+            'm_departement_id' => 'required'
         ],$messages);
 
         if($request->get("sumber")=="0"){
@@ -160,7 +175,7 @@ class AcademyController extends Controller
         $nama_file = explode("/",$path);
         $file_cv = $this->getCurlValue(storage_path('app/'.$path),false,$nama_file[1]);
 
-        $sent_data = $request->only(['email','nama','no_ktp','m_kota_id','m_kota_id_asal','tgl_lahir','no_hp','pendidikan_terakhir','alamat_ktp','m_jenis_kelamin','nilai_sekolah','nama_sekolah']);
+        $sent_data = $request->only(['email','nama','no_ktp','m_kota_id','m_kota_id_asal','tgl_lahir','no_hp','pendidikan_terakhir','alamat_ktp','m_jenis_kelamin','nilai_sekolah','nama_sekolah','m_departement_id']);
 
        
         $sent_data['cv'] = $file_cv;

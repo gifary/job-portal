@@ -23,6 +23,7 @@ return [
     'lainnya' => "Lainnya",
     'nama_sekolah' => "Nama Sekolah",
     'nilai_sekolah' => "IPK/Nilai SKHUN",
+    'departement' => "Department yang diminati",
     'academy_text' => '<p  style="font-weight: bold; text-align: justify;">
                 <h3><b>Anda ingin dapat bekerja di dunia perhotelan? </b></h3>
             </p>

@@ -23,6 +23,7 @@ return [
     'lainnya' => "Other",
     'nama_sekolah' => "School Name",
     'nilai_sekolah' => "Score/GPA",
+    'departement' => "Department of interest",
     'academy_text' => '<p  style="font-weight: bold; text-align: justify;">
                 <h3><b>Do you want to start your career as Hotelier? </b></h3>
             </p>
