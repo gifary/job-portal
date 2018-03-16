@@ -169,6 +169,7 @@
           closeOnConfirm: true
         },
         function(){
+          $(this).attr('disabled','disabled');
           form.submit();
         });
     });
