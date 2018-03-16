@@ -166,7 +166,7 @@
           confirmButtonColor: "#16465E",
           cancelButtonText : '{{ trans("apply.batal") }}',
           confirmButtonText: '{{ trans("apply.setuju") }}',
-          closeOnConfirm: false
+          closeOnConfirm: true
         },
         function(){
           form.submit();
