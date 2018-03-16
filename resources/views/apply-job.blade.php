@@ -157,6 +157,7 @@
         }
     });
     $( "#apply" ).click(function() {
+        $(this).attr('disabled','disabled');
         var form = $('#form-recrutiment');
         swal({
           title: '{{ trans("apply.persetujuan") }}',
@@ -169,7 +170,6 @@
           closeOnConfirm: true
         },
         function(){
-          $(this).attr('disabled','disabled');
           form.submit();
         });
     });
