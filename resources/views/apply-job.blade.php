@@ -168,9 +168,12 @@
           cancelButtonText : '{{ trans("apply.batal") }}',
           confirmButtonText: '{{ trans("apply.setuju") }}',
           closeOnConfirm: true
-        },
-        function(){
-          form.submit();
+        }).then((result)=>{
+            if(result.value) {
+              form.submit();
+            }else{
+              $(this).removeAttr("disabled")
+            }
         });
     });
     $('.datepicker').datepicker({
